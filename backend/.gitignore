@@ -1,1 +1,3 @@
 node_modules
+
+# Not passing .env purposely for now (testing phase)
