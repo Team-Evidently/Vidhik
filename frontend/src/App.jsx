@@ -1,15 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from '@material-tailwind/react'
+// import './App.css'
+import { BrowserRouter } from 'react-router-dom'
+import Router from './pages/router'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
     <>
-     <Button className='bg-green-200'>Button</Button>
+   <BrowserRouter>
+   <Router />
+   </BrowserRouter>
+     
     </>
   )
 }
