@@ -13,7 +13,13 @@ module.exports = withMT(
           bgprimaryColor : '#FFFF',
           bgsecondaryColor : '#F7F7F7',
           btnColor: '#1450A3',
-          iconColor: "#329D90"
+          iconColor: "#329D90",
+          textColor: 'black',
+          yellowColor: "#FEB60D",
+        purpleColor: "#9771FF",
+        irisBlueColor: "#01B5C5",
+        paraColor: "#808080",
+        headingColor: "#000000",
         },
   
         boxShadow: {
