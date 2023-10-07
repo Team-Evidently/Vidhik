@@ -4,14 +4,15 @@ import Router from './routes/router'
 import Module from './modules/Module'
 
 function App() {
- 
+
 
   return (
     <>
-   <BrowserRouter>
-  <Module />
-   </BrowserRouter>
-     
+      <BrowserRouter>
+        <Module />
+
+      </BrowserRouter>
+
     </>
   )
 }

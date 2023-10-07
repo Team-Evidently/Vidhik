@@ -21,9 +21,6 @@ const USignup = () => {
 
   return (
     <div>
-       <div className="text-[#f5f5f5] text-3xl font-4 mb-0">
-          <img src={logo} alt="" className="w-[250px] h-auto" />
-        </div>
       <h2
         style={{
           fontFamily: "Inter",

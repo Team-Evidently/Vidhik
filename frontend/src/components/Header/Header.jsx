@@ -1,18 +1,37 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import logo from "../../assets/logo.png"
-import { Link,  } from 'react-router-dom'
+import { Link, } from 'react-router-dom'
 import userImg from "../../assets/avatar-icon.png"
 
-// import { BiMenu } from 'react-icons/bi'
+import { BiMenu } from 'react-icons/bi'
 
 
 const Header = () => {
+
     const headerRef = useRef(null);
     const menuRef = useRef(null);
 
+    const [showbtn, setShowbtn] = useState(false);
+
+    useEffect(() => {
+
+        const displayBtn = () => {
+            if (localStorage.getItem('name')) {
+                setShowbtn(false);
+            } else {
+                setShowbtn(true);
+            }
+        }
+
+        displayBtn();
+
+
+
+    }, []);
+
     const handleStickyHeader = () => {
         window.addEventListener('scroll', () => {
-            if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
                 headerRef.current.classList.add('sticky__header');
             }
             else {
@@ -24,13 +43,13 @@ const Header = () => {
     useEffect(() => {
         handleStickyHeader();
 
-        return () => window,removeEventListener('scroll', handleStickyHeader);
+        return () => window, removeEventListener('scroll', handleStickyHeader);
     });
 
     const toggleMenu = () => {
         menuRef.current.classList.toggle('show__menu');
     }
-    
+
     return (
         <header className='flex items-center bg-[url("./assets/mask.png")] bg-no-repeat bg-center bg-cover h-[100px] leading-[100px]' ref={headerRef}>
             <div className="container">
@@ -47,16 +66,27 @@ const Header = () => {
                                 </figure>
                             </Link>
                         </div>
-                        <Link to="/PLogin">
-                            <button className='bg-btnColor  px-6 text-white font-[600] h-[44px] flex items-center rounded-[10px]'>Lawyers Click here</button>
-                           
-                        </Link>
-                        <Link to="/ULogin">
-                        <Link to="/ULogin">
-                            <button className='bg-white  px-6 text-btnColor font-[600] h-[44px] flex items-center rounded-[10px] border border-solid border-btnColor'>Clients Click here</button>
-                        </Link>
+                        {showbtn ? (
+                            <>
+                                <Link to="/provider/login">
+                                    <button className='bg-btnColor  px-6 text-white font-[600] h-[44px] flex items-center rounded-[10px]'>Lawyers Click here</button>
+
+                                </Link>
+                                <Link to="/ULogin">
+                                    <button className='bg-white  px-6 text-btnColor font-[600] h-[44px] flex items-center rounded-[10px] border border-solid border-btnColor'>Clients Click here</button>
+                                </Link>
+                            </>
+                        ) : (
+                            <Link to="/">
+                                <button className='bg-btnColor  px-6 text-white font-[600] h-[44px] flex items-center rounded-[10px]'>Logout</button>
+
+                            </Link>
+
+                        )
+                        }
+
                         <span className='md:hidden' onClick={toggleMenu}>
-                            {/* <BiMenu className="w-6 h-7 cursor-pointer"></BiMenu> */}
+                            <BiMenu className="w-6 h-7 cursor-pointer"></BiMenu>
                         </span>
                     </div>
                 </div>

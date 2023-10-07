@@ -13,7 +13,7 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`bg-[#1450A3] fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-[300px] rounded-2xl transition-transform duration-300 xl:translate-x-0`}
+      className={`bg-[#1450A3] fixed my-4 ml-4 h-[calc(100vh-32px)] w-[300px] rounded-2xl transition-transform duration-300 xl:translate-x-0`}
     >
       <div className="relative flex flex-col items-center mt-6 h-full w-auto">
         <img

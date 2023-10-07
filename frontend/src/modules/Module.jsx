@@ -6,7 +6,7 @@ const Module = () => {
   return (
     <div>
         <Header />
-        <main>
+        <main className=''>
             <Router />
         </main>
     </div>

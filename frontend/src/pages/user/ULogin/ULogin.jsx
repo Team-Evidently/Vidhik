@@ -35,10 +35,7 @@ const ULogin = () => {
     window.location.href = "/clientdashboard";
   };
   return (
-    <div>
-      <div className="text-[#f5f5f5] text-3xl font-4 mb-0">
-          <img src={logo} alt="" className="w-[250px] h-auto" />
-        </div>
+    <div className="h-[900px] overflow-y-hidden hero__section">
       <h2
         style={{
           fontFamily: "Inter",
@@ -46,11 +43,11 @@ const ULogin = () => {
           fontWeight: "600px",
           color: "#000000",
         }}
-        className="flex items-center justify-center mb-4 mt-0"
+        className="flex items-center justify-center mb-4 mt-0 heading"
       >
         FOR CLIENT
       </h2>
-      <div className=" flex items-center justify-center bg-White">
+      <div className=" flex items-center justify-center bg-White ">
         <Box
           sx={{
             backgroundColor: "#F7F7F7",
