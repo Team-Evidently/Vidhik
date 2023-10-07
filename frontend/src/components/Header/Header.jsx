@@ -3,7 +3,7 @@ import logo from "../../assets/logo.png"
 import { Link,  } from 'react-router-dom'
 import userImg from "../../assets/avatar-icon.png"
 
-import { BiMenu } from 'react-icons/bi'
+// import { BiMenu } from 'react-icons/bi'
 
 
 const Header = () => {
@@ -47,15 +47,15 @@ const Header = () => {
                                 </figure>
                             </Link>
                         </div>
-                        <Link to="/login">
+                        <Link to="/PLogin">
                             <button className='bg-btnColor  px-6 text-white font-[600] h-[44px] flex items-center rounded-[10px]'>Lawyers Click here</button>
                            
                         </Link>
-                        <Link to="/register">
+                        <Link to="/ULogin">
                             <button className='bg-white  px-6 text-btnColor font-[600] h-[44px] flex items-center rounded-[10px] border border-solid border-btnColor'>Clients Click here</button>
                         </Link>
                         <span className='md:hidden' onClick={toggleMenu}>
-                            <BiMenu className="w-6 h-7 cursor-pointer"></BiMenu>
+                            {/* <BiMenu className="w-6 h-7 cursor-pointer"></BiMenu> */}
                         </span>
                     </div>
                 </div>

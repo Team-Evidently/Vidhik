@@ -1,6 +1,6 @@
 import UHome from "./user/UHome/UHome";
-import ULogin from "./user/UHome/ULogin/ULogin";
-import USignup from "./user/UHome/USignup/USignup";
+import ULogin from "./user/ULogin/ULogin";
+import USignup from "./user/USignup/USignup";
 import LDashboard from "./lsp/LDashboard/LDashboard";
 const pagesData = [
     {
