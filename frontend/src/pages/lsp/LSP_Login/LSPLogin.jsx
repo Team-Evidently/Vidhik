@@ -10,7 +10,7 @@ import logo from "../../../assets/logo.png";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 
-const ULogin = () => {
+const LSPLogin = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -29,7 +29,7 @@ const ULogin = () => {
     setOpenSnackbar(true);
 
   
-    window.location.href = "/UDashboard";
+    window.location.href = "/LDashboard";
   };
   return (
     <div className="h-[900px] overflow-y-hidden hero__section">
@@ -42,8 +42,7 @@ const ULogin = () => {
         }}
         className="flex items-center justify-center mb-4 mt-0 heading"
       >
-        FOR CLIENT
-      </h2>
+        FOR LSP      </h2>
       <div className=" flex items-center justify-center bg-White ">
         <Box
           sx={{
@@ -106,8 +105,8 @@ const ULogin = () => {
           <p style={{ textAlign: "center" }}>or</p>
           <form onSubmit={handleLogin}>
             <TextField
-              label="Email"
-              placeholder="    Enter Your Email"
+              label="Bar Number"
+              placeholder="    Enter Your Bar Council Number"
               type="email"
               fullWidth
               variant="outlined"
@@ -175,7 +174,7 @@ const ULogin = () => {
             }}
           >
             <Link
-              to="/USignup"
+              to="/provider/signup"
               style={{ textDecoration: "none", color: "#000" }}
             >
               Don't have an account? Sign up
@@ -201,4 +200,4 @@ const ULogin = () => {
   );
 };
 
-export default ULogin;
+export default LSPLogin;
