@@ -51,7 +51,7 @@ const LDashboard = () => {
             <div className="flex flex-col w-full relative">
               <button
                 type="button"
-                className={` cursor-default bg-white text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify flex items-center bg-inherit`}
+                className={` cursor-default text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify flex items-center bg-inherit`}
                 onClick={() => handleButtonClick("case1")}
               >
                 <div className="flex items-center justify-start w-full">
@@ -73,9 +73,8 @@ const LDashboard = () => {
             <div className="flex flex-col w-full relative">
               <button
                 type="button"
-                className={`cursor-default bg-white text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify bg-inherit flex items-center`}
-                onClick={() => handleButtonClick("case1")}
-              >
+                className={`cursor-default text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify bg-inherit flex items-center`}
+                onClick={() => handleButtonClick("case1")}>
                 <div className="flex items-center justify-start w-full">
                   <PiMedalFill className="inline-block text-6xl m-3 bg-[#47E52E] bg-opacity-50 p-1 border border-black rounded-lg" />
                   <div className="flex flex-col">
@@ -95,7 +94,7 @@ const LDashboard = () => {
             <div className="flex flex-col w-full relative">
               <button
                 type="button"
-                className={`cursor-default bg-white text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify bg-inherit flex items-center`}
+                className={`cursor-default text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify bg-inherit flex items-center`}
                 onClick={() => handleButtonClick("case1")}
               >
                 <div className="flex items-center justify-start w-full">
@@ -117,7 +116,7 @@ const LDashboard = () => {
             <div className="flex flex-col w-full relative">
               <button
                 type="button"
-                className={`cursor-default bg-white text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify bg-inherit flex items-center`}
+                className={`cursor-default text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify bg-inherit flex items-center`}
                 onClick={() => handleButtonClick("case1")}
               >
                 <div className="flex items-center justify-start w-full">
