@@ -18,7 +18,12 @@ const USignup = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+  const handleLogin = (e) => {
+    e.preventDefault();
 
+  
+    window.location.href = "/UDashboard";
+  };
   return (
     <div>
       <h2
@@ -67,7 +72,7 @@ const USignup = () => {
             }}
           ></div>
 
-          <form>
+          <form onSubmit={handleLogin}>
             <TextField
               label="Full Name"
               placeholder="Enter Your Full Name"
