@@ -12,6 +12,7 @@ import LSchedule from "./lsp/LSchedule/LSchedule";
 import FindLSP from "./lsp/FindLSP/FindLSP";
 import LegalHub from "./lsp/LegalHub/LegalHub";
 import LegalBot from "./lsp/LegalBot/LegalBot";
+import LCRoom from "./lsp/LCRoom/LCRoom";
 const pagesData = [
     {
         path:"/",
@@ -67,7 +68,13 @@ const pagesData = [
         path:"/LegalBot",
         element: <LegalBot  />,
         title: "LSP_Signup"
-    }
+    },
+    {
+        path:"/LCRoom",
+        element: <LCRoom />,
+        title: "LSP_Signup"
+    },
+
 ];
 
 export default pagesData;
