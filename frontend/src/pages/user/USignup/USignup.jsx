@@ -20,7 +20,7 @@ const USignup = () => {
   };
 
   return (
-    <div>
+    <div className="hero__section">
       <h2
         style={{
           fontFamily: "Inter",

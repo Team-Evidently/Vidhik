@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LSPAbout = () => {
+const LSPAbout = (props) => {
   return (
     <div>LSPAbout</div>
   )

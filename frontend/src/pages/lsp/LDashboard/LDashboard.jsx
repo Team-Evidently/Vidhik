@@ -40,7 +40,7 @@ import logo from "../../../assets/logo.png";
 
 const LDashboard = () => {
   return (
-    <div className="bg-[#F5F5F5] min-h-screen flex py-0">
+    <div className="bg-[#F5F5F5] min-h-screen flex">
       {/* <Sidenav /> */}
       <div className=" p-4 w-full"> 
         <div className="text-[#f5f5f5] text-3xl font-4 mb-4">
