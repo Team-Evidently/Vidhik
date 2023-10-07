@@ -5,25 +5,29 @@ import documents from "../../../assets/documents.png";
 import loyaltyimg from "../../../assets/loyaltyimg.png";
 import Playstore from "../../../assets/Playstore.png";
 import Meetingcard from "../../../components/MeetingCard/Meetingcard";
+import avatar from "../../../assets/avatar-icon.png";
 
 const LCRoom = () => {
   return (
     <div className="bg-[#F5F5F5] min-h-screen flex">
-      {/* <Sidenav /> */}
+      
       <div className=" p-4 w-full">
-        <div className="text-[#f5f5f5] text-3xl font-4 mb-4">
-          <img src={logo} alt="" className="w-[200px] h-auto" />
+        <div style={{position:'relative',height:"75px"}}className=" text-3xl font-4 mb-4">
+          <img style={{position:'absolute',left:'0px'}}src={logo} alt="" className="w-[200px] h-auto" />
+          <img style={{position:'absolute',right:'0px'}}src={avatar} alt="" className="w-[75px] h-auto" />
+          <p style={{position:'absolute',right:'100px',top:'15px',color:'#329D90',fontSize:'28px',fontWeight:'800'}}>John Doe</p>
+
         </div>
 
         <div
-          style={{ borderRadius: "15px" }}
-          className="bg-white flex flex-row justify-between"
+          style={{ position:'relative' }}
+          className="bg-gray-100 flex flex-row "
         >
           <div
             style={{ position: "relative" }}
-            className="h-[150px] w-[20%] bg-gray-100  rounded-xl m-4 mt-9"
+            className="h-[150px] w-[220px] bg-white  rounded-xl m-4 mt-9"
           >
-            <img src={Loyalty} alt="" className="w-[70px] h-auto" />
+            <img src={Loyalty} alt="" className="w-[60px] h-auto" />
             <p
               style={{
                 position: "absolute",
@@ -57,9 +61,9 @@ const LCRoom = () => {
           </div>
           <div
             style={{ position: "relative" }}
-            className="h-[150px] w-[20%] bg-gray-100  rounded-xl m-4 mt-9"
+            className="h-[150px] w-[220px] bg-white rounded-xl m-4 mt-9"
           >
-            <img src={Playstore} alt="" className="w-[70px] h-auto" />
+            <img src={Playstore} alt="" className="w-[60px] h-auto" />
             <p
               style={{
                 position: "absolute",
@@ -93,9 +97,9 @@ const LCRoom = () => {
           </div>
           <div
             style={{ position: "relative" }}
-            className="h-[150px] w-[20%] bg-gray-100  rounded-xl m-4 mt-9"
+            className="h-[150px] w-[220px] bg-white  rounded-xl m-4 mt-9"
           >
-            <img src={documents} alt="" className="w-[70px] h-auto" />
+            <img src={documents} alt="" className="w-[60px] h-auto" />
             <button
               style={{
                 position: "absolute",
@@ -104,11 +108,11 @@ const LCRoom = () => {
                 fontFamily: "Inter",
                 fontSize: "22px",
                 fontWeight: "400",
-                color: "#000000",
+                color: "#329D90",
                 width: "80px",
                 height: "30px",
                 borderRadius: "15px",
-                background: "#FFFFFF",
+                background: "rgba(50, 157, 144, 0.25)",
                 textAlign: "center",
                 alignItems: "center",
                 justifyContent: "center",
@@ -135,9 +139,9 @@ const LCRoom = () => {
           </div>
           <div
             style={{ position: "relative" }}
-            className="h-[150px] w-[20%] bg-gray-100 rounded-xl m-4 mt-9"
+            className="h-[150px] w-[220px] bg-white rounded-xl m-4 mt-9"
           >
-            <img src={loyaltyimg} alt="" className="w-[70px] h-auto" />
+            <img src={loyaltyimg} alt="" className="w-[60px] h-auto" />
             <p
               style={{
                 position: "absolute",
@@ -182,17 +186,18 @@ const LCRoom = () => {
               Next hearing
             </p>
           </div>
-          <div
+          {/* <div
             style={{ position: "relative" }}
             className="h-[240px] w-[30%] rounded-xl  justify-center  items-center flex "
           >
-            <div className=" w-40 h-40 rounded-full bg-gray-500 flex items-center justify-center">
+         
               <img
-                src="avatar.png"
+              style={{height:"200px",width:"200px"}}
+                src={avatar}
                 alt="Avatar"
-                className="w-30 h-30 rounded-full"
+                className=" rounded-full"
               />
-            </div>
+           
             <p
               style={{
                 position: "absolute",
@@ -205,12 +210,13 @@ const LCRoom = () => {
             >
               John Doe{" "}
             </p>
-          </div>
+          </div> */}
+          <Meetingcard></Meetingcard>
         </div>
 
         <div
           style={{
-            borderRadius: "15px",
+            
             height: "1000px",
             position: "relative",
           }}
@@ -219,7 +225,7 @@ const LCRoom = () => {
           
         >
           
-            <Meetingcard></Meetingcard>
+        
             
         </div>
       </div>
