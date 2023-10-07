@@ -6,9 +6,20 @@ import Sidebar from '../components/sidenav'
 
 const Module = () => {
     const location = useLocation()
-    console.log(location.pathname)
-    if(location.pathname === '/login' || location.pathname === '/register'){
+    console.log(typeof(location.pathname))
+    console.log(location.pathname == "/ULogin")
+    if(location.pathname === '/'){
         return (
+            <div>
+                <Header />
+                <main className=''>
+                    <Router />
+                </main>
+            </div>
+        )
+    }
+    else if(location.pathname === '/ULogin' || location.pathname == '/USignup' || location.pathname == '/provider/login' || location.pathname == '/provider/signup'){
+        return(
             <div>
                 <main className=''>
                     <Router />
@@ -19,8 +30,8 @@ const Module = () => {
     else{
         return (
             <div>
-                <Header />
-                <main className=''>
+                {/* <Header /> */}
+                <main className='bg-[#F5F5F5]'>
                     <Sidebar />
                     <div className='ml-[340px] '>
                     <Router />
