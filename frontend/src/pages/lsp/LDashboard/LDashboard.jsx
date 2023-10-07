@@ -40,9 +40,9 @@ import logo from "../../../assets/logo.png";
 
 const LDashboard = () => {
   return (
-    <div className="bg-[#F5F5F5] min-h-screen flex hero__section py-0">
-      <Sidenav />
-      <div className="ml-[340px] p-4 w-full"> 
+    <div className="bg-[#F5F5F5] min-h-screen flex py-0">
+      {/* <Sidenav /> */}
+      <div className=" p-4 w-full"> 
         <div className="text-[#f5f5f5] text-3xl font-4 mb-4">
           <img src={logo} alt="" className="w-[100px] h-auto" />
         </div>

@@ -10,7 +10,6 @@ const Profile = () => {
     const [tab, settab] = useState('about')
     return (
         <div className="bg-[#F5F5F5] min-h-screen flex">
-            <Sidebar />
             <main>
                 <section>
                     <div className='max-w-[1170px] px-5 mx-auto'>
