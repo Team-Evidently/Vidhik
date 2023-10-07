@@ -5,7 +5,7 @@ import Hero from '../../../components/Hero/Hero'
 const UHome = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <main>
         <Hero />
       </main>

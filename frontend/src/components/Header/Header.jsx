@@ -47,11 +47,11 @@ const Header = () => {
                                 </figure>
                             </Link>
                         </div>
-                        <Link to="/login">
+                        <Link to="/provider/login">
                             <button className='bg-btnColor  px-6 text-white font-[600] h-[44px] flex items-center rounded-[10px]'>Lawyers Click here</button>
                            
                         </Link>
-                        <Link to="/register">
+                        <Link to="/ULogin">
                             <button className='bg-white  px-6 text-btnColor font-[600] h-[44px] flex items-center rounded-[10px] border border-solid border-btnColor'>Clients Click here</button>
                         </Link>
                         <span className='md:hidden' onClick={toggleMenu}>
