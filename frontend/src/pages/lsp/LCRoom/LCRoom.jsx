@@ -12,7 +12,7 @@ const LCRoom = () => {
       {/* <Sidenav /> */}
       <div className=" p-4 w-full">
         <div className="text-[#f5f5f5] text-3xl font-4 mb-4">
-          <img src={logo} alt="" className="w-[100px] h-auto" />
+          <img src={logo} alt="" className="w-[200px] h-auto" />
         </div>
 
         <div
