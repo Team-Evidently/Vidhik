@@ -3,8 +3,11 @@ import ULogin from "./user/ULogin/ULogin";
 import USignup from "./user/USignup/USignup";
 import LDashboard from "./lsp/LDashboard/LDashboard";
 import Profile from "./lsp/LSP_Profile/Profile";
-import Login from "./lsp/LSP_Login/Login";
-import SignUp from "./lsp/LSP_Signup/SignUp";
+
+
+import LSPLogin from "./lsp/LSP_Login/LSPLogin";
+import { BiLogoSpotify } from "react-icons/bi";
+import LSPSignUp from "./lsp/LSP_Signup/LSPSignUp";
 const pagesData = [
     {
         path:"/",
@@ -33,12 +36,12 @@ const pagesData = [
     },
     {
         path:"/provider/login",
-        element: <Login />,
+        element: <LSPLogin />,
         title: "LSP_Login"
     },
     {
         path:"/provider/signup",
-        element: <SignUp />,
+        element: <LSPSignUp />,
         title: "LSP_Signup"
     }
 ];
