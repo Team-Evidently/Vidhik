@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {BiSolidDashboard, BiLogOut} from "react-icons/bi";
-import {MdPersonSearch} from "react-icons/md";
-import {BsListCheck} from "react-icons/bs";
+import {MdHub, MdPersonSearch} from "react-icons/md";
+import {BsListCheck, BsRobot} from "react-icons/bs";
 
 const Sidebar = () => {
   const [activeButton, setActiveButton] = useState("dashboard");
@@ -28,7 +28,7 @@ const Sidebar = () => {
           Lawyer
         </div>
 
-        <Link to="/">
+        <Link to="/provider/profile/:id">
           <button
             type="button"
             className="cursor-pointer bg-white border-none text-[#1450A3] text-sm font-semibold rounded-md mt-6 p-1"
@@ -37,6 +37,7 @@ const Sidebar = () => {
           </button>
         </Link>
         <div className="mt-10 flex flex-col w-full">
+          <Link to ="./LDashboard">
           <button
             type="button"
             className={`cursor-pointer ${
@@ -49,7 +50,8 @@ const Sidebar = () => {
             <BiSolidDashboard className="inline-block text-2xl mr-5"/>
             Dashboard
           </button>
-
+          </Link>
+            <Link to ="./LSchedule">
           <button
             type="button"
             className={`cursor-pointer ${
@@ -62,7 +64,8 @@ const Sidebar = () => {
             <BsListCheck className="inline-block font-semibold text-2xl mr-5"/>
             Schedule & clients
           </button>
-
+          </Link>
+          <Link to ="./FindLSP">
           <button
             type="button"
             className={`cursor-pointer ${
@@ -75,8 +78,38 @@ const Sidebar = () => {
             <MdPersonSearch className="inline-block text-2xl mr-6"/>
             Lawyers
           </button> 
+          </Link>
+          <Link to ="./LegalHub">
+          <button
+            type="button"
+            className={`cursor-pointer ${
+              activeButton === "LegalHub"
+                ? "bg-[#F5F5F5] text-[#1450A3]"
+                : "text-[#BCBCBC]"
+            } text-sm font-semibold rounded-l-md mt-2 p-3 pl-10 ml-10 w-[260px] text-justify`}
+            onClick={() => handleButtonClick("LegalHub")}
+          >
+            <MdHub className="inline-block text-2xl mr-6"/>
+            LegalHub
+          </button> 
+          </Link>
+          <Link to ="./LegalBot">
+          <button
+            type="button"
+            className={`cursor-pointer ${
+              activeButton === "Legal Bot"
+                ? "bg-[#F5F5F5] text-[#1450A3]"
+                : "text-[#BCBCBC]"
+            } text-sm font-semibold rounded-l-md mt-2 p-3 pl-10 ml-10 w-[260px] text-justify`}
+            onClick={() => handleButtonClick("Legal Bot")}
+          >
+            <BsRobot className="inline-block text-2xl mr-6"/>
+            Legal Bot
+          </button> 
+          </Link>
         </div>
-
+            
+           
         <button
             type="button"
             className={`cursor-pointer ${
@@ -85,10 +118,13 @@ const Sidebar = () => {
                 : "text-[#BCBCBC]"
             } text-sm font-semibold rounded-md mt-2 bottom-14 absolute`}
             onClick={() => handleButtonClick("logout")}
-            >
+            > <Link to ="/">
+            
             <BiLogOut className="inline-block text-2xl mr-2"/>
             Logout
+            </Link>
           </button>
+          
       </div>
     </aside>
   );

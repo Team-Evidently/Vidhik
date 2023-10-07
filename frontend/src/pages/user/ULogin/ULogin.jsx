@@ -29,7 +29,7 @@ const ULogin = () => {
     setOpenSnackbar(true);
 
   
-    window.location.href = "/UDashboard";
+    window.location.href = "/LDashboard";
   };
   return (
     <div className="h-[900px] overflow-y-hidden hero__section">

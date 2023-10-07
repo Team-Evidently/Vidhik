@@ -8,6 +8,10 @@ import Profile from "./lsp/LSP_Profile/Profile";
 import LSPLogin from "./lsp/LSP_Login/LSPLogin";
 import { BiLogoSpotify } from "react-icons/bi";
 import LSPSignUp from "./lsp/LSP_Signup/LSPSignUp";
+import LSchedule from "./lsp/LSchedule/LSchedule";
+import FindLSP from "./lsp/FindLSP/FindLSP";
+import LegalHub from "./lsp/LegalHub/LegalHub";
+import LegalBot from "./lsp/LegalBot/LegalBot";
 const pagesData = [
     {
         path:"/",
@@ -42,6 +46,26 @@ const pagesData = [
     {
         path:"/provider/signup",
         element: <LSPSignUp />,
+        title: "LSP_Signup"
+    },
+    {
+        path:"/LSchedule",
+        element: <LSchedule />,
+        title: "LSP_Signup"
+    },
+    {
+        path:"/FindLSP",
+        element: <FindLSP    />,
+        title: "LSP_Signup"
+    },
+    {
+        path:"/LegalHub",
+        element: <LegalHub  />,
+        title: "LSP_Signup"
+    },
+    {
+        path:"/LegalBot",
+        element: <LegalBot  />,
         title: "LSP_Signup"
     }
 ];

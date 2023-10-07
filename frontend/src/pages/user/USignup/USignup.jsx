@@ -22,7 +22,7 @@ const USignup = () => {
     e.preventDefault();
 
   
-    window.location.href = "/UDashboard";
+    window.location.href = "/LDashboard";
   };
   return (
     <div className="hero__section">
