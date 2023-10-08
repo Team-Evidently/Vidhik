@@ -3,6 +3,7 @@ import Header from '../components/Header/Header'
 import Router from '../routes/router'
 import { useLocation } from 'react-router-dom'
 import Sidebar from '../components/sidenav'
+import Clientnav from '../components/Clientnav'
 
 const Module = () => {
     const location = useLocation()
@@ -20,6 +21,23 @@ const Module = () => {
             </div>
         )
     }
+    else if(location.pathname === '/UDashboard' || location.pathname === '/Uroom' || location.pathname === '/UFindLSP'){
+        return(
+            <div>
+                <main className='bg-[#F5F5F5]'>
+                   <Clientnav />
+                    <div className='ml-[315px] '>
+                    <Router />
+                    </div>
+                    
+                </main>
+
+            </div>
+
+        )
+
+    }
+    
     else if(location.pathname === '/ULogin' || location.pathname == '/USignup' || location.pathname == '/provider/login' || location.pathname == '/provider/signup' || location.pathname == '/UHome'){
         return(
             <div>

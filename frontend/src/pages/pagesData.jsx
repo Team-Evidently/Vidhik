@@ -13,6 +13,8 @@ import FindLSP from "./lsp/FindLSP/FindLSP";
 import LegalHub from "./lsp/LegalHub/LegalHub";
 import LegalBot from "./lsp/LegalBot/LegalBot";
 import LCRoom from "./lsp/LCRoom/LCRoom";
+import Uroom from "./user/URoom/Uroom";
+import UFindLSP from "./user/UFindLSP/UFindLSP";
 const pagesData = [
     {
         path:"/",
@@ -78,6 +80,16 @@ const pagesData = [
         path:"/LCRoom",
         element: <LCRoom />,
         title: "LSP_Signup"
+    },
+    {
+        path:"/Uroom",
+        element: <Uroom />,
+        title: "Uroom"
+    },
+    {
+        path:"/UFindLSP",
+        element: <UFindLSP />,
+        title: "UFindLSP"
     },
 
 ];
