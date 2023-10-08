@@ -7,7 +7,7 @@ import { BiMenu } from 'react-icons/bi'
 
 
 const Header = () => {
-
+    console.log("in header")
     const headerRef = useRef(null);
     const menuRef = useRef(null);
 

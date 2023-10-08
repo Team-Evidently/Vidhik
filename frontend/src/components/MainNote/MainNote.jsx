@@ -65,7 +65,7 @@ const MainNote = () => {
       >
         My Notes
       </h1>
-			<div style={{position:'absolute',top:'600px'}}className='container'>
+			<div style={{position:'absolute',top:'600px'}}className='Maincontainer'>
 				<NotesList
 					notes={notes.filter((note) =>
 						note.text.toLowerCase().includes(searchText)

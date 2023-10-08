@@ -8,9 +8,11 @@ const Module = () => {
     const location = useLocation()
     console.log(typeof(location.pathname))
     console.log(location.pathname == "/ULogin")
-    if(location.pathname === '/'){
+    if(location.pathname == '/'){
+        console.log('hello')
         return (
             <div>
+                {/* <h3>sadhkahdad</h3> */}
                 <Header />
                 <main className=''>
                     <Router />
