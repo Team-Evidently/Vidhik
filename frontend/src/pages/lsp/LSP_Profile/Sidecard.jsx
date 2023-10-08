@@ -36,9 +36,9 @@ const Sidecard = ({lawyer}) => {
                     </li>
                 </ul>
             </div>
-            <div className="btn px-2 w-full rounded-md"><BasicModal /></div>
+            <div className="btn px-2 w-[80%] ml-7 text-center rounded-md"><BasicModal /></div>
                
-            <button className="btn px-2 w-full rounded-md mt-4">ek aur socho</button>
+            {/* <button className="btn px-2 w-full rounded-md mt-4">ek aur socho</button> */}
         </div>
     )
 }

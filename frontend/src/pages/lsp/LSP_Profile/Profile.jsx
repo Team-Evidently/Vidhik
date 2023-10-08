@@ -6,6 +6,7 @@ import Feedback from '../../../components/Feedback/Feedback'
 import lawyer01 from "../../../assets/lawyer01.jpeg"
 import location from '../../../assets/location.gif'
 import Sidecard from './Sidecard'
+import jsPDF from 'jspdf';
 
 const Profile = () => {
 
@@ -54,9 +55,33 @@ const Profile = () => {
     };
 
     const [tab, settab] = useState('about')
+
+    const handleDownloadReport = () => {
+        // Create a new instance of jsPDF with A4 dimensions
+        const doc = new jsPDF({
+          orientation: 'portrait', // 'portrait' for vertical, 'landscape' for horizontal
+          unit: 'mm',
+          format: 'a4',
+        });
+      
+        // Add a new page (A4 size)
+        doc.addPage();
+      
+        // Define the content to be added to the PDF
+        const content = document.getElementById('pdf-content');
+      
+        // Generate the PDF by adding the content from your component
+        doc.html(content, {
+          callback: function (doc) {
+            // Save the PDF with a filename (e.g., 'report.pdf')
+            doc.save('report.pdf');
+          },
+        });
+      };
+      
     return (
-        <div className="bg-[#F5F5F5] min-h-screen flex justify-center">
-            <main>
+        <div  className="  bg-[#F5F5F5] min-h-screen flex justify-center">
+            <main id='pdf-content'>
                 <section>
                     <div className='max-w-[1170px] px-5 mx-auto ml-10'>
                         <div className='grid md:grid-cols-3 gap-[50px]'>
@@ -103,6 +128,8 @@ const Profile = () => {
 
                             </div>
                             <Sidecard lawyer={lawyers} />
+                            <button onClick={handleDownloadReport} style={{position:'absolute',top:'360px',right:'290px'}} className="btn px-2  rounded-md mt-4">Download Report</button>
+
                         </div>
 
                     </div>
