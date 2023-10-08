@@ -231,7 +231,7 @@ const UDashboard = (props) => {
       {/* <Navbar setIsOpen={setIsOpen} isOpen={isOpen}></Navbar> */}
 
       <div
-        className=" h-[55vh] overflow-hidden flex flex-col items-center pt-3 gap-3"
+        className=" h-[50vh] overflow-hidden flex flex-col items-center pt-3 gap-3"
         style={{
           backgroundImage: `url(${Herobg})`,
           backgroundSize: "cover",
@@ -239,7 +239,7 @@ const UDashboard = (props) => {
           backgroundPosition: "center",
         }}
       >
-        <div className="text-center">
+        <div className="text-center mt-3">
           {" "}
           {/* Add a container div */}
           <Typography className="font-bodyFont mt-3" variant="h3">
@@ -265,9 +265,10 @@ const UDashboard = (props) => {
               getLawyerSection.scrollIntoView({ behavior: "smooth" });
             }
           }}
-          className="bg-white text-[#a0a0a0] rounded-xl px-10 py-2 mb-1"
-          // color="secondary"
-          // color={"#a0a0a0"}
+
+          className="rounded-xl px-10 py-2 mb-1 text-xl"
+          style={{ backgroundColor: 'white', color: '#a0a0a0' }} // Added custom styles
+        
         >
           Need a Lawyer ?
         </Button>
@@ -461,7 +462,7 @@ const UDashboard = (props) => {
                     <Grid item xs={12} sm={6} key={lawyer.id}>
                       <Card
                         onClick={() => {
-                          navigate(`/lawyer/profile/${lawyer.id}`);
+                          navigate(`/provider/profile/:id`);
                         }}
                         sx={{
                           height: "100%",
