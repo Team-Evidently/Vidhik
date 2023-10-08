@@ -129,6 +129,7 @@ export const lawyers = [
  export const arbitrators = [
   {
     "arbitrator_name": "John Doe",
+    "vidhik_id": "V123456",
     "arbitrator_id": "A123456",
     "arbitrator_password": "john123",
     "email": "john.doe@example.com",
@@ -143,6 +144,7 @@ export const lawyers = [
   {
     "arbitrator_name": "Jane Smith",
     "arbitrator_id": "A654321",
+    "vidhik_id": "V654321",
     "arbitrator_password": "jane456",
     "email": "jane.smith@example.com",
     "photo_url": "https://images.app.goo.gl/RxgGPFysUwAawqrJ6",
@@ -156,6 +158,7 @@ export const lawyers = [
   {
     "arbitrator_name": "Robert Johnson",
     "arbitrator_id": "A789012",
+    "vidhik_id": "V789012",
     "arbitrator_password": "robert789",
     "email": "robert.johnson@example.com",
     "photo_url": "https://example.com/robertjohnson.jpg",
@@ -169,6 +172,7 @@ export const lawyers = [
   {
     "arbitrator_name": "Emily Davis",
     "arbitrator_id": "A345678",
+    "vidhik_id": "V345678",
     "arbitrator_password": "emily345",
     "email": "emily.davis@example.com",
     "photo_url": "https://example.com/emilydavis.jpg",
@@ -182,6 +186,7 @@ export const lawyers = [
   {
     "arbitrator_name": "Michael Brown",
     "arbitrator_id": "A567890",
+    "vidhik_id": "V567890",
     "arbitrator_password": "michael567",
     "email": "michael.brown@example.com",
     "photo_url": "https://example.com/michaelbrown.jpg",
