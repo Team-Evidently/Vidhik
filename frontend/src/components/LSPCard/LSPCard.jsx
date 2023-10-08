@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Paper } from '@mui/material';
 import star from '../../assets/Star.png';
 import avatar01 from '../../assets/avatar01.png';
@@ -7,20 +7,29 @@ import facebook from '../../assets/facebook.png';
 import twitter from '../../assets/twitter.png';
 import linkedin from '../../assets/linkedin.png';
 
-const LSPCard = ({ person }) => {
+const LSPCard = ({ person, handleSelect = () => {}, selectedArbitrators = [] }) => {
   const isLawyer = person.lawyer_name != null;
   const isArbitrator = person.arbitrator_name != null;
+ 
 
   if (!isLawyer && !isArbitrator) {
     return <div />;
   }
+
+
+
 
   const title = isLawyer ? person.lawyer_name : person.arbitrator_name;
   const profession = isLawyer ? 'Lawyer' : person.profession;
   const speciality = isLawyer ? person.speciality : [];
 
   return (
-    <Paper className='w-[400px] h-fit pb-5 border border-solid border-black shadow-panelShadow'>
+    <Paper className=' w-[400px] h-fit pb-5 border border-solid border-black ' sx={{
+      backgroundColor: selectedArbitrators.some((selected) => selected.vidhik_id === person.vidhik_id)
+        ? '#90EE90'
+        : '#E5F6F4',
+
+    }} >
       <div className='flex justify-between pt-4 px-2 items-center '>
         <div className='flex'>
           {Array.from({ length: person.rating }).map((_, index) => (
@@ -51,10 +60,21 @@ const LSPCard = ({ person }) => {
           <img src={twitter} alt="" className='h-[44px] w-[44px] cursor-pointer' />
           <img src={facebook} alt="" className='h-[44px] w-[44px] cursor-pointer' />
         </div>
-        <div className='flex justify-between gap-2 items-center px-10 mt-10'>
-          <button className="border border-solid border-btnColor px-4 py-2 rounded-md font-semibold w-40">Message</button>
-          <button className='btn w-40'>Connect</button>
-        </div>
+        {
+          isArbitrator ? (
+            <button className='btn w-40' onClick={handleSelect}>
+              {selectedArbitrators.some((selected) => selected.vidhik_id === person.vidhik_id) ? 'Selected' : 'Select'}
+              </button>
+
+          ) : (
+            <div className='flex justify-between gap-2 items-center px-10 mt-10'>
+              <button className="border border-solid border-btnColor px-4 py-2 rounded-md font-semibold w-40">Message</button>
+              <button className='btn w-40'>Connect</button>
+            </div>
+          )
+
+        }
+
       </center>
 
     </Paper>
