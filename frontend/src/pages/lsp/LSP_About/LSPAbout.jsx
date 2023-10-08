@@ -4,6 +4,7 @@ import { Card } from '@mui/material'
 import CustomPie from "../../../components/Charts/CustomPie"
 import { CustomLine } from '../../../components/Charts/Line';
 
+
 const data = [24, 7, 3];
 const LSPAbout = ({ lawyer }) => {
 
