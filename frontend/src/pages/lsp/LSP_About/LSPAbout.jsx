@@ -1,7 +1,10 @@
 import React from 'react'
 import { formatDate } from '../../../utils/formatDate'
 import { Card } from '@mui/material'
+import CustomPie from "../../../components/Charts/CustomPie"
+import { CustomLine } from '../../../components/Charts/Line';
 
+const data = [24, 7, 3];
 const LSPAbout = ({ lawyer }) => {
 
     return (
@@ -32,11 +35,11 @@ const LSPAbout = ({ lawyer }) => {
                             }
                         </span>
                     </h3>
-                    <Card className='p-5 mt-5 h-[300px] w-[500px]'>
-                        some random graph
+                    <Card className='p-5 mt-5 h-[300px] w-[500px] flex justify-center items-center'>
+                    <CustomPie data={data} />
                     </Card>
                     <Card className='p-5 mt-5 h-[300px] w-[500px]'>
-                        some random graph
+                        <CustomLine />
                     </Card>
                 </ul>
             </div>
