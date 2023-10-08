@@ -111,7 +111,7 @@ export const lawyers = [
      "no_of_past_cases_fought": 28,
      "no_of_past_cases_won": 18,
      "rating": 4.3,
-     "speciality": ["Criminal Defense", "Tax Law"],
+     "speciality": ["Criminal", "Tax Law"],
      "practicing_court": ["Supreme Court", "County Court"],
      "lawyer_location": "Townsville",
      "languages_known": ["English", "Spanish"],

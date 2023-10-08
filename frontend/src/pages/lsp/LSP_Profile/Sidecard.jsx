@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import BasicModal from "../../../components/Modal";
 
 const Sidecard = ({lawyer}) => {
     return (
@@ -35,7 +36,8 @@ const Sidecard = ({lawyer}) => {
                     </li>
                 </ul>
             </div>
-            <button className="btn px-2 w-full rounded-md">Request an Appointment</button>
+            <div className="btn px-2 w-full rounded-md"><BasicModal /></div>
+               
             <button className="btn px-2 w-full rounded-md mt-4">ek aur socho</button>
         </div>
     )
