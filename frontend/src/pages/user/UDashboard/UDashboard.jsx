@@ -231,7 +231,7 @@ const UDashboard = (props) => {
       {/* <Navbar setIsOpen={setIsOpen} isOpen={isOpen}></Navbar> */}
 
       <div
-        className=" h-[800px] overflow-hidden flex flex-col items-center pt-3 gap-3"
+        className=" h-[900px] overflow-hidden flex flex-col items-center pt-3 gap-3"
         style={{
           backgroundImage: `url(${Herobg})`,
           backgroundSize: "cover",
@@ -251,8 +251,10 @@ const UDashboard = (props) => {
             }
           }}
 
-          className="rounded-xl px-10 py-2 mb-1 text-xl"
-          style={{ backgroundColor: 'white', color: '#a0a0a0' }} // Added custom styles
+          className=" px-10 py-2  "
+          style={{background: "rgba(50, 157, 144, 0.25)", color: "#329D90", width: "220px",
+          height: "50px",
+          borderRadius: "10px" ,position:'absolute',top:'600px',fontSize: "18px",}} // Added custom styles
 
         >
           Need a Lawyer ?
