@@ -6,6 +6,8 @@ import loyaltyimg from "../../../assets/loyaltyimg.png";
 import Playstore from "../../../assets/Playstore.png";
 import Meetingcard from "../../../components/MeetingCard/Meetingcard";
 import avatar from "../../../assets/avatar-icon.png";
+import PastHearing from "../../../components/PastHearing/PastHearing";
+import MainNote from "../../../components/MainNote/MainNote";
 
 const LCRoom = () => {
   return (
@@ -23,211 +25,160 @@ const LCRoom = () => {
           style={{ position:'relative' }}
           className="bg-gray-100 flex flex-row "
         >
-          <div
-            style={{ position: "relative" }}
-            className="h-[150px] w-[220px] bg-white  rounded-xl m-4 mt-9"
-          >
-            <img src={Loyalty} alt="" className="w-[60px] h-auto" />
-            <p
-              style={{
-                position: "absolute",
-                right: "15px",
-                top: "2px",
-                color: "#000",
-                fontFamily: "Inter",
-                fontSize: "45px",
-                fontWeight: "600",
-              }}
-              className=""
-            >
-              {" "}
-              45
-            </p>
-            <p
-              style={{
-                position: "absolute",
-                left: "5px",
-                bottom: "15px",
-                color: "#000",
-                fontFamily: "Inter",
-                fontSize: "22px",
-                fontWeight: "300",
-              }}
-              className=""
-            >
-              {" "}
-              Loyalty Score
-            </p>
+         
+           <div className="h-[150px] w-[40%] bg-white rounded-xl m-4 hover:bg-[#a0a0a0] hover:bg-opacity-25 hover:border-black hover:border">
+            <div className="flex flex-col w-full relative">
+              <button
+                type="button"
+                className={` cursor-default text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify flex items-center bg-inherit`}
+               
+              >
+                <div className="flex items-center justify-start w-full">
+                <img src={Loyalty} alt="" className="inline-block text-6xl m-3 bg-[#FFC7EA] bg-opacity-50 p-1 border border-black rounded-lg" />
+                 
+                  <div className="flex flex-col">
+                    <div className="justify-center content-center text-start text-btnColor font-bold text-lg">
+                      Loyalty Score
+                    </div>
+                  </div>
+                </div>
+                <button className="flex items-center px-3 py-2 rounded-md w-[120px] h-[60px] justify-center text-5xl">
+                  45
+                </button>
+              </button>
+            </div>
           </div>
-          <div
-            style={{ position: "relative" }}
-            className="h-[150px] w-[220px] bg-white rounded-xl m-4 mt-9"
-          >
-            <img src={Playstore} alt="" className="w-[60px] h-auto" />
-            <p
-              style={{
-                position: "absolute",
-                right: "15px",
-                top: "15px",
-                color: "#000",
-                fontFamily: "Inter",
-                fontSize: "22px",
-                fontWeight: "600",
-              }}
-              className=""
-            >
-              {" "}
-              General
-            </p>
-            <p
-              style={{
-                position: "absolute",
-                left: "5px",
-                bottom: "15px",
-                color: "#000",
-                fontFamily: "Inter",
-                fontSize: "22px",
-                fontWeight: "300",
-              }}
-              className=""
-            >
-              {" "}
-              Service Type
-            </p>
+         
+          <div className="h-[150px] w-[40%] bg-white rounded-xl m-4 hover:bg-[#a0a0a0] hover:bg-opacity-25 hover:border-black hover:border">
+            <div className="flex flex-col w-full relative">
+              <button
+                type="button"
+                className={`cursor-default text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify bg-inherit flex items-center`}
+              >
+                <div className="flex items-center justify-start w-full">
+                  
+                  <img src={Playstore} alt="" className="inline-block text-6xl m-3 bg-[#C8FFE0] bg-opacity-50 p-1 border border-black rounded-lg" />
+                  <div className="flex flex-col">
+                    <div className="justify-center content-center text-start text-btnColor font-bold text-lg">
+                      Service
+                    </div>
+                  </div>
+                </div>
+                <button className="flex items-center px-3 py-2 rounded-md w-[120px] h-[60px] justify-center text-2xl">
+                General
+                </button>
+              </button>
+            </div>
           </div>
-          <div
-            style={{ position: "relative" }}
-            className="h-[150px] w-[220px] bg-white  rounded-xl m-4 mt-9"
-          >
-            <img src={documents} alt="" className="w-[60px] h-auto" />
-            <button
-              style={{
-                position: "absolute",
-                top: "20px",
-                right: "15px",
-                fontFamily: "Inter",
-                fontSize: "22px",
-                fontWeight: "400",
-                color: "#329D90",
-                width: "80px",
-                height: "30px",
+        
+           <div className="h-[150px] w-[40%] bg-white rounded-xl m-4 hover:bg-[#a0a0a0] hover:bg-opacity-25 hover:border-black hover:border">
+            <div className="flex flex-col w-full relative">
+              <button
+                type="button"
+                className={`cursor-default text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify bg-inherit flex items-center`}
+                
+              >
+                <div className="flex items-center justify-start w-full">
+                 
+                  <img src={documents} alt="" className="inline-block text-6xl m-3 bg-[#F6E6C2] bg-opacity-50 p-1 border border-black rounded-lg" />
+                  <div className="flex flex-col">
+                    <div className="justify-center content-center text-start text-btnColor font-bold text-lg">
+                      Documents
+                    </div>
+                  </div>
+                </div>
+                <button style={{
+              
+                color: "#000",
                 borderRadius: "15px",
                 background: "rgba(50, 157, 144, 0.25)",
-                textAlign: "center",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-              className="  "
-            >
-              View
-            </button>
-            <p
-              style={{
-                position: "absolute",
-                left: "5px",
-                bottom: "15px",
-                color: "#000",
-                fontFamily: "Inter",
-                fontSize: "22px",
-                fontWeight: "300",
-              }}
-              className=""
-            >
-              {" "}
-              Documents
-            </p>
+                
+                
+                
+              }}className="flex items-center px-3 py-2 rounded-md w-[120px] h-[60px] justify-center text-2xl">
+                  View
+                </button>
+              </button>
+            </div>
           </div>
-          <div
-            style={{ position: "relative" }}
-            className="h-[150px] w-[220px] bg-white rounded-xl m-4 mt-9"
-          >
-            <img src={loyaltyimg} alt="" className="w-[60px] h-auto" />
-            <p
-              style={{
-                position: "absolute",
-                right: "15px",
-                top: "2px",
-                color: "#000",
-                fontFamily: "Inter",
-                fontSize: "45px",
-                fontWeight: "600",
-              }}
-              className=""
-            >
-              8
-            </p>
-            <p
-              style={{
-                position: "absolute",
-                right: "15px",
-                top: "55px",
-                color: "#000",
-                fontFamily: "Inter",
-                fontSize: "20px",
-                fontWeight: "600",
-              }}
-              className=""
-            >
-              OCT
-            </p>
-            <p
-              style={{
-                position: "absolute",
-                left: "5px",
-                bottom: "15px",
-                color: "#000",
-                fontFamily: "Inter",
-                fontSize: "22px",
-                fontWeight: "300",
-              }}
-              className=""
-            >
-              {" "}
-              Next hearing
-            </p>
-          </div>
-          {/* <div
-            style={{ position: "relative" }}
-            className="h-[240px] w-[30%] rounded-xl  justify-center  items-center flex "
-          >
          
-              <img
-              style={{height:"200px",width:"200px"}}
-                src={avatar}
-                alt="Avatar"
-                className=" rounded-full"
-              />
            
-            <p
-              style={{
-                position: "absolute",
-                bottom: "0px",
-                color: "#329D90",
-                fontFamily: "Inter",
-                fontSize: "28px",
-                fontWeight: "800",
-              }}
-            >
-              John Doe{" "}
-            </p>
-          </div> */}
-          <Meetingcard></Meetingcard>
+           <div className="h-[150px] w-[40%] bg-white rounded-xl m-4 hover:bg-[#a0a0a0] hover:bg-opacity-25 hover:border-black hover:border">
+            <div className="flex flex-col w-full relative">
+              <button
+                type="button"
+                className={`cursor-default text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify bg-inherit flex items-center`}
+                
+              >
+                <div className="flex items-center justify-start w-full">
+                 
+                  <img src={loyaltyimg} alt="" className="inline-block text-6xl m-3 bg-[#85CDFD] bg-opacity-50 p-1 border border-black rounded-lg"  />
+                  <div className="flex flex-col">
+                    <div className="justify-center content-center text-start text-btnColor font-bold text-lg">
+                      Next Hearing
+                    </div>
+                  </div>
+                </div>
+                <button className="flex items-center px-3 py-2 rounded-md w-[120px] h-[60px] justify-center text-2xl">
+                  26 OCT
+                </button>
+              </button>
+            </div>
+          </div>
+         
         </div>
+        <Meetingcard> </Meetingcard>
+        <PastHearing></PastHearing>
 
-        <div
-          style={{
-            
-            height: "1000px",
-            position: "relative",
-          }}
-          className=" flex flex-row justify-between"
+        <div>
+          <h1
+        style={{
+          position: 'absolute',
+          left: '375px',
+          color: '#000',
+          fontFamily: 'Poppins',
+          fontSize: '25px', 
+          fontWeight: '700',
+          marginTop: '10px',
+        }}
+        className=""
+      >
+        Case Details 
+      </h1>
 
+    <div
+      style={{
+        borderRadius: '15px',
+        position: 'absolute',
+        left: '375px',
+        top: '340px',
+      }}
+      className="w-[360px] bg-white"
+    >
+      
+
+      <div
+        style={{
+          height: '200px',
+          width:'600px',
+          background: 'white',
+          borderRadius: '15px',
           
-        >
-          
+        }}
+        className="mt-2"
+      > <div  
+      className="">
         
-            
         </div>
+      </div>
+
+      <div className="flex justify-center mt-auto">
+       
+      </div>
+    </div>
+    </div>
+    
+    <MainNote>  </MainNote>
       </div>
     </div>
   );

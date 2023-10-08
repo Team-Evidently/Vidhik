@@ -21,8 +21,8 @@ function MeetingCard() {
       style={{
         borderRadius: '15px',
         position: 'absolute',
-        right: '60px',
-        top: '20px',
+        right: '26px',
+        top: '340px',
       }}
       className="h-[500px] w-[360px] bg-white"
     >
@@ -40,7 +40,10 @@ function MeetingCard() {
         Meetings
       </h1>
 
-      <div style={{background: '#F7F7F7',height:'50px',marginTop:'75px',width:'80%',marginLeft:'35px',borderRadius:'15px'}}className="flex ">
+      <div
+        style={{ background: '#F7F7F7', height: '50px', marginTop: '75px', width: '80%', marginLeft: '35px', borderRadius: '15px' }}
+        className="flex"
+      >
         <input
           style={{
             position: 'absolute',
@@ -102,9 +105,23 @@ function MeetingCard() {
         Create
       </button>
 
-      <ul className="mt-24">
+      <ul
+        className="mt-24 p-4"
+        style={{
+          listStyle: 'none',
+          border: '1px solid #E5E5E5',
+          borderRadius: '15px',
+          background: "rgba(20, 80, 163, 0.25)",
+          margin: '35px',
+          marginTop:'50px'
+        
+        }}
+      >
         {meetings.map((meeting, index) => (
-          <li key={index} className="flex justify-between border-b border-gray-300 py-2">
+          <li
+            key={index}
+            className="flex justify-between border-b border-gray-300 py-2"
+          >
             <span>{meeting.topic}</span>
             <span>{meeting.time}</span>
           </li>
