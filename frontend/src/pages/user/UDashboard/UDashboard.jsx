@@ -3,7 +3,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import LawyerCarousel from "../../../components/LawyerCarousel";
 import Drawer from "../../../components/Drawer";
-import Herobg from "../../../assets/mesh-gradient.png";
+import Herobg from "../../../assets/clientherobg.png";
 import {
   Autocomplete,
   Card,
@@ -231,7 +231,7 @@ const UDashboard = (props) => {
       {/* <Navbar setIsOpen={setIsOpen} isOpen={isOpen}></Navbar> */}
 
       <div
-        className=" h-[50vh] overflow-hidden flex flex-col items-center pt-3 gap-3"
+        className=" h-[800px] overflow-hidden flex flex-col items-center pt-3 gap-3"
         style={{
           backgroundImage: `url(${Herobg})`,
           backgroundSize: "cover",
@@ -239,23 +239,8 @@ const UDashboard = (props) => {
           backgroundPosition: "center",
         }}
       >
-        <div className="text-center mt-3">
-          {" "}
-          {/* Add a container div */}
-          <Typography className="font-bodyFont mt-3" variant="h3">
-            Connecting Legal Excellence
-          </Typography>
-          <Typography variant="h5" className="font-bodyFont mt-3">
-            Your Marketplace for Top-tier Lawyers
-          </Typography>
-        </div>
-        <img
-          src={handshake}
-          alt="Lawyer Image"
-          className=""
-          style={{ height: "200px", width: "150px" }}
-        />
-        <Button
+
+     <Button
           variant="contained"
           onClick={() => {
             // Scroll to the "Get a Lawyer for You" section
@@ -268,7 +253,7 @@ const UDashboard = (props) => {
 
           className="rounded-xl px-10 py-2 mb-1 text-xl"
           style={{ backgroundColor: 'white', color: '#a0a0a0' }} // Added custom styles
-        
+
         >
           Need a Lawyer ?
         </Button>
