@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import CustomStepper from '../../../components/CustomStepper/CustomStepper'
+import { arbitrators } from '../../../database'
 import LSPCard from '../../../components/LSPCard/LSPCard'
-import { lawyers } from '../../../database'
 import LSPFilter from '../../../components/LSPFilter/LSPFilter'
+import { lawyers } from '../../../database'
 
-const FindLSP = () => {
-  const [filteredLawyers, setFilteredLawyers] = useState(lawyers);
+const FindArbritrator = () => {
+    const [filteredLawyers, setFilteredLawyers] = useState(lawyers);
 
   const handleFilterChange = (filters) => {
     // Apply filters to the lawyers array
@@ -45,22 +47,26 @@ const FindLSP = () => {
   }
   , [filteredLawyers]);
 
-  
+    return (
+        <div>
+            <CustomStepper />
+            <div className='flex justify-between'>
+                <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 lg:gap-[30px]  lg:mt-[55px] '>
+                    {
+                        arbitrators.map(arbitrators => (
+                            <LSPCard person={arbitrators} key={arbitrators.id} />
+                        ))
+                    }
+                </div>
+                <div>
+                    <LSPFilter onFilterChange={handleFilterChange} setFilteredLawyers={setFilteredLawyers} />
+                </div>
 
-  return (
-    <div className=' flex justify-between px-10'>
-      <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 lg:gap-[30px]  lg:mt-[55px] '>
-        {
-          filteredLawyers.map(lawyer => (
-            <LSPCard person={lawyer} key={lawyer.id} />
-          ))
-        }
-      </div>
-      <div>
-      <LSPFilter onFilterChange={handleFilterChange} setFilteredLawyers={setFilteredLawyers} />
-      </div>
-    </div>
-  )
+            </div>
+
+
+        </div>
+    )
 }
 
-export default FindLSP
+export default FindArbritrator

@@ -122,4 +122,76 @@ export const lawyers = [
      "additional_ids": ["AIBE567", "OS890", "ST123", "StateName"]
    }
  ];
+
+
+
+
+ export const arbitrators = [
+  {
+    "arbitrator_name": "John Doe",
+    "arbitrator_id": "A123456",
+    "arbitrator_password": "john123",
+    "email": "john.doe@example.com",
+    "photo_url": "https://images.app.goo.gl/GFHRkXec7FBceS6P9",
+    "phone_no": "1234567890",
+    "gender": "Male",
+    "experience_in_years": 10,
+    "profession": "Lawyer",
+    "endorsements": ["Entity123"],
+    "cases_involved": ["Case123", "Case456"]
+  },
+  {
+    "arbitrator_name": "Jane Smith",
+    "arbitrator_id": "A654321",
+    "arbitrator_password": "jane456",
+    "email": "jane.smith@example.com",
+    "photo_url": "https://images.app.goo.gl/RxgGPFysUwAawqrJ6",
+    "phone_no": "9876543210",
+    "gender": "Female",
+    "experience_in_years": 8,
+    "profession": "Retired Judge",
+    "endorsements": ["Entity456"],
+    "cases_involved": ["Case789", "Case012"]
+  },
+  {
+    "arbitrator_name": "Robert Johnson",
+    "arbitrator_id": "A789012",
+    "arbitrator_password": "robert789",
+    "email": "robert.johnson@example.com",
+    "photo_url": "https://example.com/robertjohnson.jpg",
+    "phone_no": "8765432109",
+    "gender": "Male",
+    "experience_in_years": 12,
+    "profession": "Mediator",
+    "endorsements": ["Entity789"],
+    "cases_involved": ["Case345", "Case678"]
+  },
+  {
+    "arbitrator_name": "Emily Davis",
+    "arbitrator_id": "A345678",
+    "arbitrator_password": "emily345",
+    "email": "emily.davis@example.com",
+    "photo_url": "https://example.com/emilydavis.jpg",
+    "phone_no": "7654321098",
+    "gender": "Female",
+    "experience_in_years": 15,
+    "profession": "Retired Professor",
+    "endorsements": ["Entity345"],
+    "cases_involved": ["Case234", "Case567"]
+  },
+  {
+    "arbitrator_name": "Michael Brown",
+    "arbitrator_id": "A567890",
+    "arbitrator_password": "michael567",
+    "email": "michael.brown@example.com",
+    "photo_url": "https://example.com/michaelbrown.jpg",
+    "phone_no": "6543210987",
+    "gender": "Male",
+    "experience_in_years": 10,
+    "profession": "Lawyer",
+    "endorsements": ["Entity567"],
+    "cases_involved": ["Case890", "Case123"]
+  }
+];
+
  

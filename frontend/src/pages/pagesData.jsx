@@ -13,6 +13,7 @@ import FindLSP from "./lsp/FindLSP/FindLSP";
 import LegalHub from "./lsp/LegalHub/LegalHub";
 import LegalBot from "./lsp/LegalBot/LegalBot";
 import LCRoom from "./lsp/LCRoom/LCRoom";
+import FindArbritrator from "./lsp/FindArbritrator/FindArbritrator";
 const pagesData = [
     {
         path:"/",
@@ -63,6 +64,11 @@ const pagesData = [
         path:"/FindLSP",
         element: <FindLSP    />,
         title: "LSP_Signup"
+    },
+    {
+        path:"/FindArbritrator",
+        element: <FindArbritrator    />,
+        title: "Find Arbritrator"
     },
     {
         path:"/LegalHub",
