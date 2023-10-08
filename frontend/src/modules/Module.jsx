@@ -18,7 +18,7 @@ const Module = () => {
             </div>
         )
     }
-    else if(location.pathname === '/ULogin' || location.pathname == '/USignup' || location.pathname == '/provider/login' || location.pathname == '/provider/signup'){
+    else if(location.pathname === '/ULogin' || location.pathname == '/USignup' || location.pathname == '/provider/login' || location.pathname == '/provider/signup' || location.pathname == '/UHome'){
         return(
             <div>
                 <main className=''>

@@ -3,7 +3,7 @@ import ULogin from "./user/ULogin/ULogin";
 import USignup from "./user/USignup/USignup";
 import LDashboard from "./lsp/LDashboard/LDashboard";
 import Profile from "./lsp/LSP_Profile/Profile";
-
+import UDashboard from "./user/UDashboard/UDashboard";
 
 import LSPLogin from "./lsp/LSP_Login/LSPLogin";
 import { BiLogoSpotify } from "react-icons/bi";
@@ -18,6 +18,11 @@ const pagesData = [
         path:"/",
         element: <UHome />,
         title: "UHome"
+    },
+    {
+        path:"/UDashboard",
+        element: <UDashboard />,
+        title: "UDashboard"
     },
     {
         path:"/Ulogin",
