@@ -33,6 +33,9 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import PersonIcon from "@mui/icons-material/Person";
 import LogoutIcon from "@mui/icons-material/Logout";
 import handshake from "../../../assets/handshake.png";
+import { IoMdNotifications } from "react-icons/io";
+import { BiSolidHelpCircle } from "react-icons/bi";
+import { AiFillSetting } from "react-icons/ai";
 
 const LawyersPerPage = 10; // Number of lawyers to display per page
 
@@ -239,6 +242,22 @@ const UDashboard = (props) => {
           backgroundPosition: "center",
         }}
       >
+ <div className=" items-center text-center flex gap-16 absolute right-3">
+            <button className="flex items-center">
+              <IoMdNotifications className="text-[#a0a0a0] text-4xl hover:text-black" />
+              <div className="text-[#a0a0a0] text-xl ml-2 hover:text-black">Alerts</div>
+            </button>
+
+            <button className="flex items-center">
+              <BiSolidHelpCircle className="text-[#a0a0a0] text-4xl hover:text-black" />
+              <div className="text-[#a0a0a0] text-xl ml-2 hover:text-black">Help</div>
+            </button>
+
+            <button className="flex items-center">
+              <AiFillSetting className="text-[#a0a0a0] text-4xl hover:text-black" />
+              <div className="text-[#a0a0a0] text-xl ml-2 hover:text-black">Settings</div>
+            </button>
+  </div>
 
      <Button
           variant="contained"

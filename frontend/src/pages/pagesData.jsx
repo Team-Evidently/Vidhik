@@ -48,6 +48,11 @@ const pagesData = [
         title: "SP"
     },
     {
+        path:"/client/profile/:id",
+        element: <Profile />,
+        title: "SP"
+    },
+    {
         path:"/provider/login",
         element: <LSPLogin />,
         title: "LSP_Login"
