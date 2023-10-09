@@ -73,6 +73,7 @@ const LSPFilter = ({onFilterChange,setFilteredLawyers}) => {
             if (filters.starRating && lawyer.rating !== parseInt(filters.starRating)) {
                 isMatch = false;
             }
+            
 
             if (filters.caseType && !lawyer.speciality.includes(filters.caseType)) {
                 isMatch = false;
