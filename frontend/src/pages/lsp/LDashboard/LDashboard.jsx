@@ -15,6 +15,7 @@ import { MdGroups } from "react-icons/md";
 import { IoDiamond } from "react-icons/io5";
 import { IoMdNotifications } from "react-icons/io";
 import { BiSolidHelpCircle } from "react-icons/bi";
+import { CustomLine } from "../../../components/Charts/Line";
 
 const LDashboard = () => {
   const [activeButton, setActiveButton] = useState("case1");
@@ -323,9 +324,12 @@ const LDashboard = () => {
           </div>
 
           {/* Rating Progression */}
-          <div className="h-[450px] w-[48%] bg-white rounded-xl mb-4">
+          <div className="h-[450px] w-[48%] bg-white rounded-xl m-4">
             <div className="bg-[#f5f5f5] text-xl font-bold p-3 -ml-5">
               Progression Chart
+            </div>
+            <div>
+              <CustomLine/>
             </div>
           </div>
 
