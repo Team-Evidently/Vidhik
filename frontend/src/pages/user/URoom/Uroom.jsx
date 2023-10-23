@@ -221,12 +221,12 @@ const Uroom = () => {
           <h1
         style={{
           position: 'absolute',
-          right: '580px',
+          left: '375px',
           color: '#000',
           fontFamily: 'Poppins',
           fontSize: '25px', 
           fontWeight: '700',
-          marginTop: '300px',
+          marginTop: '600px',
         }}
         className=""
       >
@@ -237,8 +237,8 @@ const Uroom = () => {
       style={{
         borderRadius: '15px',
         position: 'absolute',
-        right: '460px',
-        top: '340px',
+        left: '375px',
+        top: '640px',
       }}
       className="w-[360px] bg-white"
     >
