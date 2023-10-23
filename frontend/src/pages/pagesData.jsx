@@ -16,6 +16,7 @@ import LCRoom from "./lsp/LCRoom/LCRoom";
 import Uroom from "./user/URoom/Uroom";
 import UFindLSP from "./user/UFindLSP/UFindLSP";
 import FindArbritrator from "./lsp/FindArbritrator/FindArbritrator";
+import UMaps from "./user/UMaps/UMaps";
 const pagesData = [
     {
         path:"/",
@@ -35,7 +36,12 @@ const pagesData = [
     {
         path:"/USignup",
         element: <USignup />,
-        title: "Ulogin"
+        title: "Usignup"
+    },
+    {
+        path:"/UMaps",
+        element: <UMaps />,
+        title: "Umaps"
     },
     {
         path:"/LDashboard",
