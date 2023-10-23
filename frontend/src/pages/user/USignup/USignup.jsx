@@ -35,7 +35,7 @@ const USignup = () => {
         }}
         className="flex items-center justify-center mb-4 mt-0"
       >
-        FOR CLIENT
+        
       </h2>
       <div className="flex items-center justify-center bg-White">
         <Box
@@ -59,10 +59,23 @@ const USignup = () => {
               fontWeight: "700",
               letterSpacing: "0.9px",
             }}
-            className="mb-6"
+           
           >
-            Sign Up
+            Client Register
           </h2>
+          <h3
+          style={{
+            color: "#004080",
+            fontSize: "30px",
+            fontFamily: "poppins",
+            fontWeight: "400",
+            letterSpacing: "0.9px",
+            marginBottom: "20px",
+          }}
+           className="mb-6"
+        >
+          Elevate Your Practice
+        </h3>
           <div
             style={{
               marginLeft: "-20px",

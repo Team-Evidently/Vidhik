@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -9,6 +9,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import logo from "../../../assets/logo.png";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import LockIcon from '@mui/icons-material/Lock';
 
 const ULogin = () => {
 
@@ -25,86 +26,61 @@ const ULogin = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-  
+
     setOpenSnackbar(true);
 
-  
+
     window.location.href = "/UDashboard";
   };
   return (
-    <div className="h-[900px] overflow-y-hidden hero__section">
-      <h2
-        style={{
-          fontFamily: "Inter",
-          fontSize: "25px",
-          fontWeight: "600px",
-          color: "#000000",
-        }}
-        className="flex items-center justify-center mb-4 mt-0 heading"
-      >
-        FOR CLIENT
-      </h2>
-      <div className=" flex items-center justify-center bg-White ">
+     <div className="h-[900px] overflow-y-hidden hero__section">
+      <div className="flex items-center justify-center bg-White mt-[3%]">
         <Box
           sx={{
-            backgroundColor: "#F7F7F7",
+            backgroundColor: "#F1A67C",
             padding: "20px",
             borderRadius: "10px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
             textAlign: "center",
-            width: "500px",
-            height: "550px",
+            width: "550px",
+            height: "650px",
             flexDirection: "column",
             justifyContent: "center",
           }}
         >
           <h2
             style={{
-              color: "#000",
+              color: "#3E2723",
               fontSize: "40px",
               fontFamily: "poppins",
               fontWeight: "700",
               letterSpacing: "0.9px",
             }}
-            className="  mb-6"
           >
-            Login
+            Client Login
           </h2>
+          <h3
+            style={{
+              color: "#004080",
+              fontSize: "30px",
+              fontFamily: "poppins",
+              fontWeight: "400",
+              letterSpacing: "0.9px",
+              marginBottom: "20px",
+            }}
+          >
+            Empower Your Legal Journey
+          </h3>
           <div
             style={{
               marginLeft: "-20px",
               height: "3px",
-              width: "500px",
+              width: "550px",
               background: "#ffffff",
             }}
           ></div>
 
-          <Box
-            style={{
-              height: "45px",
-              width: "350px",
-              background: "#FFFFFF",
-              borderRadius: "15px",
-              marginLeft: "50px",
-            }}
-            className="mt-6 flex items-center justify-center"
-          >
-            <img src="https://img.icons8.com/fluency/33/000000/google-logo.png" />
-            <p
-              style={{
-                fontFamily: "poppins",
-                fontSize: "18px",
-                fontWeight: "600px",
-                color: "#000000",
-                letterSpacing: "0.9",
-              }}
-              className="ml-2"
-            >
-              Continue with Google
-            </p>
-          </Box>
-          <p style={{ textAlign: "center" }}>or</p>
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleLogin} className="mt-10 flex flex-col justify-center items-center">
             <TextField
               label="Email"
               placeholder="    Enter Your Email"
@@ -113,26 +89,30 @@ const ULogin = () => {
               variant="outlined"
               margin="normal"
               InputProps={{
-                
-                startAdornment: <EmailIcon style={{ color: "grey" }} />,
+                startAdornment: <EmailIcon style={{ color: "black" }} />,
               }}
             />
             <TextField
               label="Password"
-              type={showPassword ? "text" : "password"} 
+              type={showPassword ? "text" : "password"}
               fullWidth
               variant="outlined"
               margin="normal"
               InputProps={{
+                startAdornment: (
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <LockIcon style={{ color: "black", marginRight: "8px" }} />
+                  </div>
+                ),
                 endAdornment: (
                   <div
                     style={{ cursor: "pointer" }}
                     onClick={togglePasswordVisibility}
                   >
                     {showPassword ? (
-                      <VisibilityIcon style={{ color: "grey" }} />
+                      <VisibilityIcon style={{ color: "black" }} />
                     ) : (
-                      <VisibilityOffIcon style={{ color: "grey" }} />
+                      <VisibilityOffIcon style={{ color: "black" }} />
                     )}
                   </div>
                 ),
@@ -141,8 +121,8 @@ const ULogin = () => {
 
             <p
               style={{
-                marginLeft: "320px",
-                marginTop: "-8px",
+                marginRight: "360px",
+                marginTop: "8px",
                 marginBottom: "20px",
               }}
               className="mt-2 text-Grey"
@@ -153,34 +133,58 @@ const ULogin = () => {
             <Button
               type="submit"
               variant="contained"
-              color="primary"
               className="mt-6"
-              style={{ width: "350px", height: "50px", borderRadius: "15px" }}
+              style={{ width: "350px", height: "50px", borderRadius: "15px", backgroundColor: "#01161E" }}
             >
               Login
             </Button>
-          </form>
-          <div
-            style={{
-              width: "350px",
-              border: "1px solid black",
-              padding: "10px",
-              backgroundColor: "#F7F7F7",
-              borderRadius: "10px",
-              marginTop: "20px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              marginLeft: "55px",
-            }}
-          >
-            <Link
-              to="/USignup"
-              style={{ textDecoration: "none", color: "#000" }}
+            <p style={{ textAlign: "center", marginTop: "0.75rem" }}>OR</p>
+            <Box
+              style={{
+                height: "45px",
+                width: "350px",
+                background: "#EFF6E0",
+                borderRadius: "15px",
+                // marginLeft: "50px",
+              }}
+              className="mt-3 flex items-center justify-center"
             >
-              Don't have an account? Sign up
-            </Link>
-          </div>
+              <img src="https://img.icons8.com/fluency/33/000000/google-logo.png" />
+              <p
+                style={{
+                  fontFamily: "poppins",
+                  fontSize: "18px",
+                  fontWeight: "600px",
+                  color: "#000000",
+                  letterSpacing: "0.9",
+                }}
+                className="ml-2"
+              >
+                Continue with Google
+              </p>
+            </Box>
+            <div
+              style={{
+                width: "350px",
+                border: "1px solid black",
+                padding: "10px",
+                backgroundColor: "#F7F7F7",
+                borderRadius: "10px",
+                marginTop: "20px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                // marginLeft: "55px",
+              }}
+            >
+              <Link
+                to="/USignup"
+                style={{ textDecoration: "none", color: "#000" }}
+              >
+                Don't have an account? Sign up
+              </Link>
+            </div>
+          </form>
         </Box>
       </div>
       <Snackbar

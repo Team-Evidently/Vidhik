@@ -1,0 +1,17 @@
+.headingtext {
+    position: relative;
+    display: inline-block;
+  }
+
+  .headingtext::after {
+    content: "";
+    position: absolute;
+    height: 3px; /* Adjust the height of the line as needed */
+    width: 800px; /* Make the line span the width of the container */
+    background-color: #251222; /* Adjust the color of the line as needed */
+    right: 10;
+    top: 50%;
+    z-index: 1; /* Keep the line behind the text */
+    margin-left: 155px;
+   
+  }

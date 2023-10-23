@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import {BiSolidDashboard, BiLogOut} from "react-icons/bi";
 import {MdHub, MdPersonSearch} from "react-icons/md";
 import {BsListCheck, BsRobot} from "react-icons/bs";
-
+import client from "../assets/clientprofile.jpeg";
+import { IoMdNotifications } from "react-icons/io";
+import { BiSolidHelpCircle } from "react-icons/bi";
+import { AiFillSetting } from "react-icons/ai";
 const Clientnav = () => {
   const [activeButton, setActiveButton] = useState("dashboard");
 
@@ -16,13 +19,15 @@ const Clientnav = () => {
       className={`bg-[#329D90] fixed my-4 ml-4 h-[calc(100vh-32px)] w-[300px] rounded-2xl transition-transform duration-300 xl:translate-x-0`}
     >
       <div className="relative flex flex-col items-center mt-6 h-full w-auto">
-        <img
-          className="w-36 h-36 rounded-full mb-2"
-          src="https://via.placeholder.com/152x150"
-          alt="Profile"
-        />
+      <img
+  className="w-36 h-36 rounded-full mb-2"
+  style={{ objectFit: 'cover' }} // Add this style
+  src={client}
+  alt="Profile"
+/>
+
         <div className="text-white text-lg font-extrabold font-['Inter'] mb-1">
-          Mr. John Doe
+          Mr. Vikram Singh
         </div>
         <div className="text-white text-lg font-light font-['Inter'] mb-4">
           Client 
@@ -105,6 +110,42 @@ const Clientnav = () => {
           >
             <BsRobot className="inline-block text-2xl mr-6"/>
             Legal Bot
+          </button> 
+          <button
+            type="button"
+            className={`cursor-pointer ${
+              activeButton === "Legal Bot"
+                ? "bg-[#F5F5F5] text-[#329D90]"
+                : "text-[#BCBCBC]"
+            } text-sm font-semibold rounded-l-md mt-2 p-3 pl-10 ml-10 w-[260px] text-justify`}
+            onClick={() => handleButtonClick("Legal Bot")}
+          >
+            <IoMdNotifications className="inline-block text-2xl mr-6"/>
+            Alert
+          </button> 
+          <button
+            type="button"
+            className={`cursor-pointer ${
+              activeButton === "Legal Bot"
+                ? "bg-[#F5F5F5] text-[#329D90]"
+                : "text-[#BCBCBC]"
+            } text-sm font-semibold rounded-l-md mt-2 p-3 pl-10 ml-10 w-[260px] text-justify`}
+            onClick={() => handleButtonClick("Legal Bot")}
+          >
+            <BiSolidHelpCircle className="inline-block text-2xl mr-6"/>
+            Help
+          </button> 
+          <button
+            type="button"
+            className={`cursor-pointer ${
+              activeButton === "Legal Bot"
+                ? "bg-[#F5F5F5] text-[#329D90]"
+                : "text-[#BCBCBC]"
+            } text-sm font-semibold rounded-l-md mt-2 p-3 pl-10 ml-10 w-[260px] text-justify`}
+            onClick={() => handleButtonClick("Legal Bot")}
+          >
+            <AiFillSetting className="inline-block text-2xl mr-6"/>
+            Settings
           </button> 
           
         </div>

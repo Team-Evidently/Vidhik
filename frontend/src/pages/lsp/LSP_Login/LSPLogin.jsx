@@ -6,9 +6,11 @@ import Button from "@mui/material/Button";
 import EmailIcon from "@mui/icons-material/Email";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import logo from "../../../assets/logo.png";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+
+import LockIcon from '@mui/icons-material/Lock';
+
 
 const LSPLogin = () => {
 
@@ -33,60 +35,120 @@ const LSPLogin = () => {
   };
   return (
     <div className="h-[900px] overflow-y-hidden hero__section">
-      <h2
-        style={{
-          fontFamily: "Inter",
-          fontSize: "25px",
-          fontWeight: "600px",
-          color: "#000000",
+    <div className="flex items-center justify-center bg-White mt-[3%]">
+      <Box
+        sx={{
+          backgroundColor: "#F1A67C",
+          padding: "20px",
+          borderRadius: "10px",
+          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+          textAlign: "center",
+          width: "550px",
+          height: "650px",
+          flexDirection: "column",
+          justifyContent: "center",
         }}
-        className="flex items-center justify-center mb-4 mt-0 heading"
       >
-        FOR LSP      </h2>
-      <div className=" flex items-center justify-center bg-White ">
-        <Box
-          sx={{
-            backgroundColor: "#F7F7F7",
-            padding: "20px",
-            borderRadius: "10px",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-            textAlign: "center",
-            width: "500px",
-            height: "550px",
-            flexDirection: "column",
-            justifyContent: "center",
+        <h2
+          style={{
+            color: "#3E2723",
+            fontSize: "40px",
+            fontFamily: "poppins",
+            fontWeight: "700",
+            letterSpacing: "0.9px",
           }}
         >
-          <h2
-            style={{
-              color: "#000",
-              fontSize: "40px",
-              fontFamily: "poppins",
-              fontWeight: "700",
-              letterSpacing: "0.9px",
+          Provider Login
+        </h2>
+        <h3
+          style={{
+            color: "#004080",
+            fontSize: "30px",
+            fontFamily: "poppins",
+            fontWeight: "400",
+            letterSpacing: "0.9px",
+            marginBottom: "20px",
+          }}
+        >
+          Elevate Your Practice
+        </h3>
+        <div
+          style={{
+            marginLeft: "-20px",
+            height: "3px",
+            width: "550px",
+            background: "#ffffff",
+          }}
+        ></div>
+
+        <form onSubmit={handleLogin} className="mt-10 flex flex-col justify-center items-center">
+          <TextField
+            label="Email"
+            placeholder="    Enter Your Email"
+            type="email"
+            fullWidth
+            variant="outlined"
+            margin="normal"
+            InputProps={{
+              startAdornment: <EmailIcon style={{ color: "black" }} />,
             }}
-            className="  mb-6"
+          />
+          <TextField
+            label="Password"
+            type={showPassword ? "text" : "password"}
+            fullWidth
+            variant="outlined"
+            margin="normal"
+            InputProps={{
+              startAdornment: (
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <LockIcon style={{ color: "black", marginRight: "8px" }} />
+                </div>
+              ),
+              endAdornment: (
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? (
+                    <VisibilityIcon style={{ color: "black" }} />
+                  ) : (
+                    <VisibilityOffIcon style={{ color: "black" }} />
+                  )}
+                </div>
+              ),
+            }}
+          />
+
+          <p
+            style={{
+              marginRight: "360px",
+              marginTop: "8px",
+              marginBottom: "20px",
+            }}
+            className="mt-2 text-Grey"
+          >
+            <Link to="/forgotPassword">Forgot Password?</Link>
+          </p>
+
+          <Button
+            type="submit"
+            variant="contained"
+            className="mt-6"
+            style={{ width: "350px", height: "50px", borderRadius: "15px", backgroundColor: "#01161E" }}
           >
             Login
-          </h2>
-          <div
-            style={{
-              marginLeft: "-20px",
-              height: "3px",
-              width: "500px",
-              background: "#ffffff",
-            }}
-          ></div>
-
+          </Button>
+          <p style={{ textAlign: "center", marginTop: "0.75rem" }}>OR</p>
           <Box
             style={{
               height: "45px",
               width: "350px",
-              background: "#FFFFFF",
+              background: "#EFF6E0",
               borderRadius: "15px",
-              marginLeft: "50px",
+              // marginLeft: "50px",
             }}
-            className="mt-6 flex items-center justify-center"
+            className="mt-3 flex items-center justify-center"
           >
             <img src="https://img.icons8.com/fluency/33/000000/google-logo.png" />
             <p
@@ -102,63 +164,6 @@ const LSPLogin = () => {
               Continue with Google
             </p>
           </Box>
-          <p style={{ textAlign: "center" }}>or</p>
-          <form onSubmit={handleLogin}>
-            <TextField
-              label="Bar Number"
-              placeholder="    Enter Your Bar Council Number"
-              type="email"
-              fullWidth
-              variant="outlined"
-              margin="normal"
-              InputProps={{
-                
-                startAdornment: <EmailIcon style={{ color: "grey" }} />,
-              }}
-            />
-            <TextField
-              label="Password"
-              type={showPassword ? "text" : "password"} 
-              fullWidth
-              variant="outlined"
-              margin="normal"
-              InputProps={{
-                endAdornment: (
-                  <div
-                    style={{ cursor: "pointer" }}
-                    onClick={togglePasswordVisibility}
-                  >
-                    {showPassword ? (
-                      <VisibilityIcon style={{ color: "grey" }} />
-                    ) : (
-                      <VisibilityOffIcon style={{ color: "grey" }} />
-                    )}
-                  </div>
-                ),
-              }}
-            />
-
-            <p
-              style={{
-                marginLeft: "320px",
-                marginTop: "-8px",
-                marginBottom: "20px",
-              }}
-              className="mt-2 text-Grey"
-            >
-              <Link to="/forgotPassword">Forgot Password?</Link>
-            </p>
-
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              className="mt-6"
-              style={{ width: "350px", height: "50px", borderRadius: "15px" }}
-            >
-              Login
-            </Button>
-          </form>
           <div
             style={{
               width: "350px",
@@ -170,33 +175,34 @@ const LSPLogin = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              marginLeft: "55px",
+              // marginLeft: "55px",
             }}
           >
             <Link
-              to="/provider/signup"
+              to="/USignup"
               style={{ textDecoration: "none", color: "#000" }}
             >
               Don't have an account? Sign up
             </Link>
           </div>
-        </Box>
-      </div>
-      <Snackbar
-        open={openSnackbar}
-        autoHideDuration={30000}
+        </form>
+      </Box>
+    </div>
+    <Snackbar
+      open={openSnackbar}
+      autoHideDuration={30000}
+      onClose={handleCloseSnackbar}
+    >
+      <MuiAlert
+        elevation={6}
+        variant="filled"
+        severity="success"
         onClose={handleCloseSnackbar}
       >
-        <MuiAlert
-          elevation={6}
-          variant="filled"
-          severity="success"
-          onClose={handleCloseSnackbar}
-        >
-          Client logged in successfully
-        </MuiAlert>
-      </Snackbar>
-    </div>
+        Client logged in successfully
+      </MuiAlert>
+    </Snackbar>
+  </div>
   );
 };
 

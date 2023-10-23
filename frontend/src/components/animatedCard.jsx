@@ -1,14 +1,24 @@
-import React from "react";
+import * as React from "react";
+import { render } from "react-dom";
+import { motion, useAnimation } from "framer-motion";
+import { useScroll } from "react-use-gesture";
+import "./animatedCard.css";
+
+import Avatar1 from "../assets/avatar01.png";
 import Avatar from "@mui/material/Avatar";
 import StarIcon from "@mui/icons-material/Star";
-// import Avatar1 from "../assets/avatar1.png";
-import Avatar2 from "../assets/avatar2.png";
 import { useNavigate } from "react-router-dom";
-import Avatar1 from "../assets/avatar01.png"
 
 
-const LawyerCarousel = () => {
-  const navigate = useNavigate();
+const clamp = (value, clampAt = 30) => {
+    if (value > 0) {
+      return value > clampAt ? clampAt : value;
+    } else {
+      return value < -clampAt ? -clampAt : value;
+    }
+  };
+ 
+
   const lawyers = [
     {
       id: 1,
@@ -26,7 +36,7 @@ const LawyerCarousel = () => {
       stars: 3,
       casesWon: 62,
       winningPercentage: 60,
-      avatar: Avatar2,
+      avatar: Avatar1,
     },
     {
       id: 3,
@@ -102,13 +112,35 @@ const LawyerCarousel = () => {
     },
     // Add more lawyer objects as needed
   ];
-
-  return (
-    <div className="overflow-x-scroll bg-2White py-4 px-2">
-      <div className="flex space-x-4">
-        {lawyers.map((lawyer) => (
+  
+ export const AnimatedCard = () => {
+    const controls = useAnimation();
+    const bind = useScroll(event => {
+      controls.start({
+        transform: `perspective(500px) rotateY(${
+          event.scrolling ? clamp(event.delta[0]) : 0
+        }deg)`
+      });
+    });
+  
+    return (
+      <>
+        <div className="container ml-20" {...bind()}>
+          {lawyers.map((lawyer) => (
+            <motion.div
+                key={lawyer.id}
+                className="card"
+                style={{
+                    // backgroundImage: `url(${lawyer.avatar})`
+                    height: "100%",
+                    transition: "transform 0.2s",
+                    width: "25%",
+                }}
+                animate={controls}
+            >
+               
           <div key={lawyer.id}
-          className="flex-shrink-0"
+          className=""
           onClick={() => {
             navigate(`/lawyer/profile/${lawyer.id}`);
           }}
@@ -145,10 +177,11 @@ const LawyerCarousel = () => {
               {/* Add more lawyer details as needed */}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default LawyerCarousel;
+       
+            </motion.div>
+        ))
+        }
+        </div>
+      </>
+    );
+  };

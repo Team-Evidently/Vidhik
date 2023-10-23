@@ -23,7 +23,7 @@ import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import Avatar1 from "../../../assets/avatar1.png";
+import Avatar1 from "../../../assets/avatar01.png";
 import Avatar2 from "../../../assets/avatar2.png";
 import nodoc from "../../../assets/nodoc.jpg";
 import nodata from "../../../assets/nodata.webp";
@@ -36,6 +36,10 @@ import handshake from "../../../assets/handshake.png";
 import { IoMdNotifications } from "react-icons/io";
 import { BiSolidHelpCircle } from "react-icons/bi";
 import { AiFillSetting } from "react-icons/ai";
+import "./udashboard.css";
+import LSPCard from "../../../components/LSPCard/LSPCard";
+import FindLSP from "../../lsp/FindLSP/FindLSP";
+import { AnimatedCard } from "../../../components/animatedCard";
 
 const LawyersPerPage = 10; // Number of lawyers to display per page
 
@@ -232,17 +236,7 @@ const UDashboard = (props) => {
   return (
     <div className="">
       {/* <Navbar setIsOpen={setIsOpen} isOpen={isOpen}></Navbar> */}
-
-      <div
-        className=" h-[900px] overflow-hidden flex flex-col items-center pt-3 gap-3"
-        style={{
-          backgroundImage: `url(${Herobg})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
-      >
- <div className=" items-center text-center flex gap-16 absolute right-3">
+      {/* <div className=" items-center text-center flex gap-16 absolute right-3">
             <button className="flex items-center">
               <IoMdNotifications className="text-[#a0a0a0] text-4xl hover:text-black" />
               <div className="text-[#a0a0a0] text-xl ml-2 hover:text-black">Alerts</div>
@@ -257,17 +251,30 @@ const UDashboard = (props) => {
               <AiFillSetting className="text-[#a0a0a0] text-4xl hover:text-black" />
               <div className="text-[#a0a0a0] text-xl ml-2 hover:text-black">Settings</div>
             </button>
-  </div>
+  </div> */}
+      <div
+        className=" h-[900px] overflow-hidden flex flex-col items-center pt-3 gap-3"
+        style={{
+          backgroundImage: `url(${Herobg})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          scale: "0.9",
+          // backgroundBlendMode: "overlay",
+        }}
+      >
+
 
      <Button
           variant="contained"
           onClick={() => {
             // Scroll to the "Get a Lawyer for You" section
-            const getLawyerSection =
-              document.getElementById("getLawyerSection");
-            if (getLawyerSection) {
-              getLawyerSection.scrollIntoView({ behavior: "smooth" });
-            }
+            // const getLawyerSection =
+            //   document.getElementById("getLawyerSection");
+            // if (getLawyerSection) {
+            //   getLawyerSection.scrollIntoView({ behavior: "smooth" });
+            // }
+            navigate("/UFindLSP");
           }}
 
           className=" px-10 py-2  "
@@ -280,267 +287,19 @@ const UDashboard = (props) => {
         </Button>
       </div>
 
-      <div className="min-h-screen bg-bgcolor flex items-center  ">
-        <div
-          className="w-[100%] p-4 px-10 "
-          style={{ maxHeight: "calc(100vh - 64px)" }}
-        >
-          {/* Heading for Top Lawyers */}
-          <h3 className="text-5xl text-darkcolor font-titleFont mb-4">
+      <h3 className="text-5xl text-darkcolor font-titleFont  headingtext ml-20">
             Our Top Lawyers
           </h3>
 
-          <LawyerCarousel></LawyerCarousel>
+          
+          <AnimatedCard>
+          </AnimatedCard>
+          <h3 className="text-5xl text-darkcolor font-titleFont mb-4 headingtext mt-40 ml-20">
+            Our Top Arbritrators
+          </h3>
 
-          {/* Search Bar and Filters Section */}
-          <div className="mt-6 flex justify-between items-center pt-20">
-            <h3
-              className="text-4xl text-darkcolor font-bodyFont mb-2 "
-              id="getLawyerSection"
-            >
-              Get a Lawyer for You
-            </h3>
-            <div className="mt-4">
-              <Pagination
-                count={Math.ceil(dummyLawyers.length / LawyersPerPage)}
-                page={currentPage}
-                onChange={handlePageChange}
-                color="secondary"
-                size="large"
-                renderItem={(item) => (
-                  <PaginationItem
-                    component="button"
-                    onClick={() => handlePageChange(item.page)}
-                    slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
-                    {...item}
-                  />
-                )}
-              />
-            </div>
-          </div>
-
-          {/* Filter Options */}
-          <div className="flex h-full gap-[35px] relative">
-            <div
-              className="w-[30%] border-l border-r  shadow-lg rounded-md h-full"
-              style={{ position: "sticky", top: 0 }}
-            >
-              <form className="mt-4 p-5  " onSubmit={handleFilterSubmit}>
-                <h4 className="text-xl text-darkcolor mb-2">Apply Filters</h4>
-                <FormControl fullWidth variant="outlined" className="mb-2 my-5">
-                  <InputLabel htmlFor="court">Court Practicing In</InputLabel>
-                  <Select
-                    id="court"
-                    name="court"
-                    value={filters.court}
-                    onChange={handleFilterChange}
-                    label="Court Practicing In"
-                  >
-                    <MenuItem value="">All</MenuItem>
-
-                    <MenuItem value="Supreme Court">Supreme Court</MenuItem>
-                    <MenuItem value="High Court">High Court</MenuItem>
-                    <MenuItem value="District Court">District Court</MenuItem>
-                    <MenuItem value="Magistate Court">Magistate</MenuItem>
-                    <MenuItem value="Family Court">Family Court</MenuItem>
-                    <MenuItem value="Fast Track Court">
-                      Fast Track Court
-                    </MenuItem>
-                    {/* Add more court options as needed */}
-                  </Select>
-                </FormControl>
-                <FormControl fullWidth variant="outlined" className="mb-2 my-5">
-                  <InputLabel htmlFor="starRating">Star Rating</InputLabel>
-                  <Select
-                    id="starRating"
-                    name="starRating"
-                    value={filters.starRating}
-                    onChange={handleFilterChange}
-                    label="Star Rating"
-                  >
-                    <MenuItem value="">All</MenuItem>
-                    <MenuItem value="1">
-                      <StarIcon color={"primary"} />
-                    </MenuItem>
-                    <MenuItem value="2">
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                    </MenuItem>
-                    <MenuItem value="3">
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                    </MenuItem>
-                    <MenuItem value="4">
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                    </MenuItem>
-                    <MenuItem value="5">
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                    </MenuItem>
-                    <MenuItem value="6">
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                    </MenuItem>
-                    <MenuItem value="7">
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                      <StarIcon color="primary" />
-                    </MenuItem>
-                  </Select>
-                </FormControl>
-
-                <FormControl fullWidth variant="outlined" className="mb-2 my-5">
-                  <InputLabel htmlFor="caseType">Case Type</InputLabel>
-                  <Select
-                    id="caseType"
-                    name="caseType"
-                    value={filters.caseType}
-                    onChange={handleFilterChange}
-                    label="Case Type"
-                  >
-                    <MenuItem value="">All</MenuItem>
-                    <MenuItem value="Criminal">Criminal</MenuItem>
-                    <MenuItem value="Family Dispute">Family Dispute</MenuItem>
-                    <MenuItem value="Civil">Civil</MenuItem>
-                    <MenuItem value="Custody">Custody</MenuItem>
-                    <MenuItem value="Murder">Murder</MenuItem>
-                    {/* Add more case type options as needed */}
-                  </Select>
-                </FormControl>
-                <FormControl fullWidth variant="outlined" className="mb-2 my-5">
-                  <InputLabel htmlFor="avgfees">Fees</InputLabel>
-                  <Select
-                    id="avgfees"
-                    name="avgfees"
-                    value={filters.avgfees}
-                    onChange={handleFilterChange}
-                    label="Fees"
-                  >
-                    <MenuItem value="">All</MenuItem>
-                    <MenuItem value="10k-20k">10k-20k</MenuItem>
-                    <MenuItem value="20k-30k">20k-30k</MenuItem>
-                    <MenuItem value="30k-40k">30k-40k</MenuItem>
-                    <MenuItem value="40k-50k">40k-50k</MenuItem>
-                    <MenuItem value="50k-60k">50k-60k</MenuItem>
-                    {/* Add more fees options as needed */}
-                  </Select>
-                </FormControl>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  className=" text-white rounded-lg px-4 py-2 my-3"
-                >
-                  Apply Filters
-                </Button>
-              </form>
-            </div>
-            <Divider orientation="vertical" flexItem />
-            <div className="w-[65%]">
-              {lawyersToDisplay.length === 0 ? (
-                <div style={{ textAlign: "center" }}>
-                  <img
-                    src={nodata}
-                    alt="No Lawyers Found"
-                    style={{ width: 300, height: 300 }}
-                  />
-                  <Typography variant="h5" className="font-bodyFont mt-3">
-                    No Lawyers Found
-                  </Typography>
-                </div>
-              ) : (
-                <Grid container spacing={4}>
-                  {lawyersToDisplay.map((lawyer) => (
-                    <Grid item xs={12} sm={6} key={lawyer.id}>
-                      <Card
-                        onClick={() => {
-                          navigate(`/provider/profile/:id`);
-                        }}
-                        sx={{
-                          height: "100%",
-                          transition: "transform 0.2s",
-                          ":hover": {
-                            transform: "scale(1.05)",
-                            cursor: "pointer", // Adjust the scale factor as needed
-                          },
-                        }}
-                      >
-                        <CardContent
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            textAlign: "center",
-                          }}
-                        >
-                          <Avatar
-                            src={lawyer.photoUrl}
-                            sx={{ width: 100, height: 100, marginBottom: 2 }}
-                          />
-                          <Typography variant="h6" gutterBottom>
-                            {lawyer.name}
-                          </Typography>
-                          <Typography variant="body2" color="textSecondary">
-                            Courts Practicing:{" "}
-                            {lawyer.courtsPracticing.join(", ")}
-                          </Typography>
-                          <div
-                            style={{ display: "flex", alignItems: "center" }}
-                          >
-                            <Typography variant="body2" color="textSecondary">
-                              Star Rating:
-                            </Typography>
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                marginLeft: 4,
-                              }}
-                            >
-                              {[1, 2, 3, 4, 5].map((star) => (
-                                <span key={star}>
-                                  {star <= lawyer.starRating ? (
-                                    <StarIcon color="primary" />
-                                  ) : (
-                                    <StarBorderIcon color="primary" />
-                                  )}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                          <Typography variant="body2" color="textSecondary">
-                            Winning Percentage: {lawyer.winningPercentage}%
-                          </Typography>
-                          <Typography variant="body2" color="textSecondary">
-                            Case Type: {lawyer.caseType.join(", ")}
-                          </Typography>
-                          <Typography variant="body2" color="textSecondary">
-                            Fees: {lawyer.fees}
-                          </Typography>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
+          {/* <LawyerCarousel></LawyerCarousel> */}
+          <AnimatedCard />
       <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
         <Avatar
           src={Avatar1}
