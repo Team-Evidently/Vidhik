@@ -17,6 +17,7 @@ import Uroom from "./user/URoom/Uroom";
 import UFindLSP from "./user/UFindLSP/UFindLSP";
 import FindArbritrator from "./lsp/FindArbritrator/FindArbritrator";
 import UMaps from "./user/UMaps/UMaps";
+import LSPAlert from "./lsp/Alert/LSPAlert";
 const pagesData = [
     {
         path:"/",
@@ -107,6 +108,11 @@ const pagesData = [
         path:"/UFindLSP",
         element: <UFindLSP />,
         title: "UFindLSP"
+    },
+    {
+        path:"/LSPAlerts",
+        element: <LSPAlert />,
+        title: "LSPAlerts"
     },
 
 ];
