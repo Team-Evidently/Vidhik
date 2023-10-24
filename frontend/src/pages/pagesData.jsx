@@ -18,102 +18,110 @@ import UFindLSP from "./user/UFindLSP/UFindLSP";
 import FindArbritrator from "./lsp/FindArbritrator/FindArbritrator";
 import UMaps from "./user/UMaps/UMaps";
 import LSPAlert from "./lsp/Alert/LSPAlert";
+import RoomPage from "./user/Meeting/screens/Room";
 const pagesData = [
     {
-        path:"/",
+        path: "/",
         element: <UHome />,
         title: "UHome"
     },
     {
-        path:"/UDashboard",
+        path: "/UDashboard",
         element: <UDashboard />,
         title: "UDashboard"
     },
     {
-        path:"/Ulogin",
+        path: "/Ulogin",
         element: <ULogin />,
         title: "Ulogin"
     },
     {
-        path:"/USignup",
+        path: "/USignup",
         element: <USignup />,
         title: "Usignup"
     },
     {
-        path:"/UMaps",
+        path: "/UMaps",
         element: <UMaps />,
         title: "Umaps"
     },
     {
-        path:"/LDashboard",
+        path: "/LDashboard",
         element: <LDashboard />,
         title: "LDashboard"
     },
     {
-        path:"/provider/profile/:id",
+        path: "/provider/profile/:id",
         element: <Profile />,
         title: "SP"
     },
     {
-        path:"/client/profile/:id",
+        path: "/client/profile/:id",
         element: <Profile />,
         title: "SP"
     },
     {
-        path:"/provider/login",
+        path: "/provider/login",
         element: <LSPLogin />,
         title: "LSP_Login"
     },
     {
-        path:"/provider/signup",
+        path: "/provider/signup",
         element: <LSPSignUp />,
         title: "LSP_Signup"
     },
     {
-        path:"/LSchedule",
+        path: "/LSchedule",
         element: <LSchedule />,
         title: "LSP_Signup"
     },
     {
-        path:"/FindLSP",
-        element: <FindLSP    />,
+        path: "/FindLSP",
+        element: <FindLSP />,
         title: "LSP_Signup"
     },
     {
-        path:"/FindArbritrator",
-        element: <FindArbritrator    />,
+        path: "/FindArbritrator",
+        element: <FindArbritrator />,
         title: "Find Arbritrator"
     },
     {
-        path:"/LegalHub",
-        element: <LegalHub  />,
+        path: "/LegalHub",
+        element: <LegalHub />,
         title: "LSP_Signup"
     },
     {
-        path:"/LegalBot",
-        element: <LegalBot  />,
+        path: "/LegalBot",
+        element: <LegalBot />,
         title: "LSP_Signup"
     },
     {
-        path:"/LCRoom",
+        path: "/LCRoom",
         element: <LCRoom />,
         title: "LSP_Signup"
     },
     {
-        path:"/Uroom",
+        path: "/Uroom",
         element: <Uroom />,
         title: "Uroom"
     },
     {
-        path:"/UFindLSP",
+        path: "/UFindLSP",
         element: <UFindLSP />,
         title: "UFindLSP"
     },
     {
-        path:"/LSPAlerts",
+        path: "/LSPAlerts",
         element: <LSPAlert />,
         title: "LSPAlerts"
     },
+    {
+
+        path: "/room/:roomId",
+        element: <RoomPage />,
+        title: "room"
+
+    }
 
 ];
 

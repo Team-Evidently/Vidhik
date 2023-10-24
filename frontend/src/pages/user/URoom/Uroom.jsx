@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import logo from "../../../assets/logo.png";
 import Loyalty from "../../../assets/Loyalty.png";
 import documents from "../../../assets/documents.png";
@@ -18,6 +18,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { Button } from 'react-scroll';
+import React, { useState, useCallback, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSocket } from "../Meeting/context/SocketProvider";
 
 
 
@@ -26,6 +29,133 @@ import { Button } from 'react-scroll';
 
 
 const Uroom = () => {
+
+  const [email, setEmail] = useState("");
+  const [room, setRoom] = useState("");
+  const [chatMessage, setChatMessage] = useState("");
+  const [chatMessages, setChatMessages] = useState([]);
+ const [openDialog, setOpenDialog] = useState(false); // State to control the dialog
+ const [selectedDate, setSelectedDate] = useState(new Date());
+ const [content, setContent] = useState("");
+ const [selectedTime, setSelectedTime] = useState("00:00");
+
+  const socket = useSocket();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setEmail(sessionStorage.getItem("email_id"));
+    let room = 456;
+    setRoom(room);
+  }, []);
+
+  useEffect(() => {
+    socket.on("room:join", handleJoinRoom);
+    socket.on("chat:message", handleNewChatMessage);
+    socket.on("participants:update", handleParticipantsUpdate);
+
+    return () => {
+      socket.off("room:join", handleJoinRoom);
+      socket.off("chat:message", handleNewChatMessage);
+      socket.off("participants:update", handleParticipantsUpdate);
+    };
+  }, [socket]);
+
+  const handleSubmitForm = useCallback(
+    (e) => {
+      e.preventDefault();
+      socket.emit("room:join", { email, room });
+    },
+    [email, room, socket]
+  );
+
+  const handleJoinRoom = useCallback(
+    (data) => {
+      const { email, room, participants } = data;
+      navigate(`/room/${room}`);
+      setParticipants(participants);
+    },
+    [navigate]
+  );
+
+  const handleNewChatMessage = useCallback(
+    (data) => {
+      const { message, sender } = data;
+      setChatMessages([...chatMessages, { sender, message }]);
+    },
+    [chatMessages]
+  );
+
+  const handleParticipantsUpdate = useCallback((data) => {
+    setParticipants(data.participants);
+  }, []);
+
+  const handleSendMessage = () => {
+    if (chatMessage.trim() !== "") {
+      socket.emit("chat:message", {
+        message: chatMessage,
+        sender: email,
+        room,
+      });
+      setChatMessage("");
+    }
+  };
+
+ const handleOpenDialog = () => {
+   setOpenDialog(true);
+ };
+
+ const handleCloseDialog = () => {
+   setOpenDialog(false);
+ };
+
+ const handleDateChange = (date) => {
+   setSelectedDate(date);
+ };
+
+ const handleContentChange = (e) => {
+   setContent(e.target.value);
+ };
+
+
+
+ const handleTimeChange = (e) => {
+  setSelectedTime(e.target.value);
+};
+
+const notification = {
+  userID: "user1-uid",
+  createdBy: "user2-uid",
+  links: {
+    meeting: "https://meet.google.com/abc-def-ghi",
+    profile: "https://example.com/user-profile",
+  },
+  status: "open",
+  subscribers: ["user1-uid", "user2-uid"],
+  content: "You have a meetibjhkhhjng with John Doe in 15 minutes.",
+};
+
+
+const handleCreateNotification = async () => {
+  try {
+    
+    await createNotification(notification);
+    console.log('Notification created successfully!');
+    handleCloseDialog();
+  } catch (error) {
+    console.error('Error creating notification:', error);
+
+  }
+};
+
+
+const getAllNotifications = async () => {
+  const notifications = await getNotificationsBySubscriberID("user2-uid");
+  for (const notification of notifications) {
+  console.log(notification);
+}
+};
+
+
   const hearingDates = [
     { serialNumber: 9, hearingNumber: 'Hearing 009', date: '2024-03-05' },
     { serialNumber: 8, hearingNumber: 'Hearing 008', date: '2024-02-15' },
@@ -43,10 +173,7 @@ const Uroom = () => {
     topic: 'Project Update and Planning',
   };
 
-  const handleJoinMeeting = () => {
-    // Add logic for joining the meeting
-    console.log('Joining the meeting...');
-  };
+
 
   const additionalContent = [
     'Agenda:',
@@ -277,7 +404,7 @@ const Uroom = () => {
             <Button
               variant="contained"
               style={{ backgroundColor: '#4CAF50', color: 'white', borderRadius: '8px', marginTop: '20px', padding: '15px 30px', fontSize: '18px' }}
-              onClick={handleJoinMeeting}
+              onClick={handleSubmitForm}
             >
               Join
             </Button>

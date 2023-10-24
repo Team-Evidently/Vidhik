@@ -9,7 +9,7 @@ const Module = () => {
     const location = useLocation()
     console.log(typeof(location.pathname))
     console.log(location.pathname == "/ULogin")
-    if(location.pathname == '/'){
+    if(location.pathname == '/' ){
         console.log('hello')
         return (
             <div>
@@ -38,7 +38,7 @@ const Module = () => {
 
     }
     
-    else if(location.pathname === '/ULogin' || location.pathname == '/USignup' || location.pathname == '/provider/login' || location.pathname == '/provider/signup' || location.pathname == '/UHome'){
+    else if(location.pathname === '/ULogin' || location.pathname == '/USignup' || location.pathname == '/provider/login' || location.pathname == '/provider/signup' || location.pathname == '/UHome' || location.pathname == '/room/456'){
         return(
             <div>
                 <main className=''>
