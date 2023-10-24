@@ -7,10 +7,10 @@ import facebook from '../../assets/facebook.png';
 import twitter from '../../assets/twitter.png';
 import linkedin from '../../assets/linkedin.png';
 
-const LSPCard = ({ person, handleSelect = () => {}, selectedArbitrators = [] }) => {
+const LSPCard = ({ person, handleSelect = () => { }, selectedArbitrators = [] }) => {
   const isLawyer = person.lawyer_name != null;
   const isArbitrator = person.arbitrator_name != null;
- 
+
 
   if (!isLawyer && !isArbitrator) {
     return <div />;
@@ -41,7 +41,19 @@ const LSPCard = ({ person, handleSelect = () => {}, selectedArbitrators = [] }) 
         </div>
       </div>
       <center className='mt-[-20px]'>
-        <img src={avatar01} alt="" width={80} />
+        <img
+          src={person.photo_url}
+          alt=""
+          width={80}
+          style={{
+            width: '80px',  // Set the desired width
+            height: '80px', // Set the desired height
+            objectFit: 'cover', // Crop the image to cover the specified dimensions
+            objectPosition: 'center', // Center the image within the container
+            borderRadius: '50%', // Optional: Apply border-radius for a circular image
+          }}
+        />
+
         <h3 className='cardheading'>{title}</h3>
 
         <div className='flex justify-center mt-2'>
@@ -64,7 +76,7 @@ const LSPCard = ({ person, handleSelect = () => {}, selectedArbitrators = [] }) 
           isArbitrator ? (
             <button className='btn w-40' onClick={handleSelect}>
               {selectedArbitrators.some((selected) => selected.vidhik_id === person.vidhik_id) ? 'Selected' : 'Select'}
-              </button>
+            </button>
 
           ) : (
             <div className='flex justify-between gap-2 items-center px-10 mt-10'>

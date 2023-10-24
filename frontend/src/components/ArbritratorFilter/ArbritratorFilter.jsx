@@ -139,7 +139,7 @@ const ArbritratorFilter = ({onFilterChange,setFilteredLawyers}) => {
 
 
     return (
-        <div className='bg-[#D9D9D9] h-fit w-[500px] rounded-lg'>
+        <div className='bg-[#D9D9D9] h-fit w-[500px] rounded-lg '>
             <center>
             <h3 className='heading mt-4 pt-4'>Filters</h3>
             </center>

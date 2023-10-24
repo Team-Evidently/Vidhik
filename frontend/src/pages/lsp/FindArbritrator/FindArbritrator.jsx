@@ -6,13 +6,18 @@ import LSPFilter from '../../../components/LSPFilter/LSPFilter'
 import { lawyers } from '../../../database'
 import ArbritratorFilter from '../../../components/ArbritratorFilter/ArbritratorFilter'
 import ArbDocModal from '../../../components/ArbDocModal/ArbDocModal'
-import { Grid, List, ListItem, ListItemText, Paper, Typography } from '@mui/material'
+import { Grid, List, ListItem, ListItemText, Modal, Paper, Typography } from '@mui/material'
 import { Button } from 'react-scroll'
+import loadingGif from "../../../assets/green-tick.gif"; // Replace with the path to your loading GIF
+import { useNavigate } from 'react-router-dom';
+
 
 const FindArbritrator = () => {
+  const navigate = useNavigate();
   const [filteredLawyers, setFilteredLawyers] = useState(lawyers);
   const [activeStep, setActiveStep] = useState(0);
   const [arbDocFormData, setArbDocFormData] = useState(null);
+  const [isVerifying, setIsVerifying] = useState(false);
 
 
   const [selectedArbitrators, setSelectedArbitrators] = useState([]); //
@@ -102,16 +107,19 @@ const FindArbritrator = () => {
     , [activeStep]);
 
   const handleSubmit = () => {
-
-    console.log("dsdas");
+    setIsVerifying(true);
+    setTimeout(() => {
+      setIsVerifying(false);
+      navigate('/client/room');
+    }, 3000);
   };
 
   return (
-    <div>
-      <CustomStepper updateStep={handleUpdateStep} />
-      <div className='flex justify-between'>
+    <div className='ml-[30px]'>
+      <CustomStepper updateStep={handleUpdateStep} handleSubmit={handleSubmit}/>
+      <div className='flex justify-center gap-20'>
         {activeStep === 0 && (
-          <>          <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 lg:gap-[30px]  lg:mt-[55px] '>
+          <>          <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:gap-[30px]  lg:mt-[55px] '>
             {arbitrators.map((arbitrator) => (
               <LSPCard
                 person={arbitrator}
@@ -121,7 +129,7 @@ const FindArbritrator = () => {
               />
             ))}
           </div>
-            <div>
+            <div  >
               <ArbritratorFilter onFilterChange={handleFilterChange} setFilteredLawyers={setFilteredLawyers} />
             </div>
 
@@ -132,57 +140,76 @@ const FindArbritrator = () => {
           <div className=" px-2 w-[80%] ml-7 text-center rounded-md"><ArbDocModal /></div>
         )}
         {activeStep === 2 && (
-  <div>
-    {localStorage.getItem("arbDocFormData") ? (
-      <Paper elevation={3} style={{ padding: '20px', margin: '20px',width:'60vw' }}>
-        <Typography variant="h5" gutterBottom>
-          ArbDoc Form Data:
-        </Typography>
-        <LSPCard person={localStorage.getItem("selectedArbritrators")} />
-        <Grid container spacing={2}>
-          <Grid item xs={6}>
-            <List>
-              <ListItem>
-                <h2 className='cardheading'> {`Name: ${arbDocFormData.name}`} </h2>
-              </ListItem>
-              <ListItem>
-              <h2 className='cardheading'>{`Phone Number: ${arbDocFormData.phoneNumber}`}</h2>
-              </ListItem>
-            </List>
-          </Grid>
-          <Grid item xs={6}>
-            <List>
-              <ListItem>
-              <h2 className='cardheading'>{`Email: ${arbDocFormData.email}`} </h2>
-              </ListItem>
-              <ListItem>
-              <h2 className='cardheading'>{`Gender: ${arbDocFormData.gender}`}</h2>
-              </ListItem>
-            </List>
-          </Grid>
-        </Grid>
-        <List>
-          <ListItem>
-          <h2 className='cardheading'>{`Address: ${arbDocFormData.address}`} </h2>
-          </ListItem>
-          <ListItem>
-          <h2 className='cardheading'>{`Occupation: ${arbDocFormData.occupation}`} </h2>
-          </ListItem>
-          {/* You can add other ListItems for additional properties */}
-        </List>
-        <button className='btn' onClick={handleSubmit}>
-          Submit
-        </button>
-        </Paper>
- ) : (
-      <Typography variant="body1" gutterBottom>
-        ArbDoc Form Data not found in local storage.
-      </Typography>
-    )}
-  </div>
-)}
+          <div>
+            {localStorage.getItem("arbDocFormData") ? (
+              <Paper elevation={3} style={{ padding: '20px', margin: '20px', width: '60vw' }}>
+                <Typography variant="h5" gutterBottom>
+                  ArbDoc Form Data:
+                </Typography>
+                <LSPCard person={localStorage.getItem("selectedArbritrators")} />
+                <Grid container spacing={2}>
+                  <Grid item xs={6}>
+                    <List>
+                      <ListItem>
+                        <h2 className='cardheading'> {`Name: ${arbDocFormData.name}`} </h2>
+                      </ListItem>
+                      <ListItem>
+                        <h2 className='cardheading'>{`Phone Number: ${arbDocFormData.phoneNumber}`}</h2>
+                      </ListItem>
+                    </List>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <List>
+                      <ListItem>
+                        <h2 className='cardheading'>{`Email: ${arbDocFormData.email}`} </h2>
+                      </ListItem>
+                      <ListItem>
+                        <h2 className='cardheading'>{`Gender: ${arbDocFormData.gender}`}</h2>
+                      </ListItem>
+                    </List>
+                  </Grid>
+                </Grid>
+                <List>
+                  <ListItem>
+                    <h2 className='cardheading'>{`Address: ${arbDocFormData.address}`} </h2>
+                  </ListItem>
+                  <ListItem>
+                    <h2 className='cardheading'>{`Occupation: ${arbDocFormData.occupation}`} </h2>
+                  </ListItem>
+                  {/* You can add other ListItems for additional properties */}
+                </List>
+              </Paper>
+            ) : (
+              <Typography variant="body1" gutterBottom>
+                ArbDoc Form Data not found in local storage.
+              </Typography>
+            )}
+          </div>
+        )}
+        <Modal
+          open={isVerifying} // Use 'open' instead of 'isOpen'
+          onClose={() => setIsVerifying(false)} // Provide an onClose handler to close the modal
+          aria-labelledby="verification-modal"
+          aria-describedby="verification-description"
+          style={{
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "300px",
+            padding: "20px",
+            borderRadius: "10px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            textAlign: "center",
+          }}
+        >
+          <div>
+            <h2 id="verification-modal">Verifying...</h2>
+            <img src={loadingGif} alt="Loading" />
+          </div>
+        </Modal>
 
       </div>
+
     </div>
   );
 

@@ -18,28 +18,36 @@ const UMaps = () => {
 
   return (
     <div className=" text-center">
-      <h1>Mapbox tutorial</h1>
-      <Map
-        mapboxAccessToken={REACT_APP_MAP_KEY}
+      <div
         style={{
-          width: "500px",
-          height: "500px",
+          width: "100%", // Adjust the width as needed
+          height: "800px", // Adjust the height as needed
           borderRadius: "15px",
           border: "2px solid red",
+          overflow: "hidden", // To clip the border within the container
         }}
-        initialViewState={{
-          longitude: lng,
-          latitude: lat,
-        }}
-        mapStyle="mapbox://styles/pixelpundits01/clo3963wd00jj01qxgw6oajzo"
-        zoom={5}
       >
-        <Marker longitude={lng} latitude={lat} />
-        <NavigationControl position="bottom-right" />
-        <FullscreenControl />
+        <Map
+          mapboxAccessToken={REACT_APP_MAP_KEY}
+          style={{
+            width: "100%", // Take up 100% of the container width
+            height: "100%", // Take up 100% of the container height
+          }}
+          initialViewState={{
+            longitude: lng,
+            latitude: lat,
+          }}
+          mapStyle="mapbox://styles/pixelpundits01/clo3963wd00jj01qxgw6oajzo"
+          zoom={5}
+        >
+          <Marker longitude={lng} latitude={lat} />
+          <NavigationControl position="bottom-right" />
+          <FullscreenControl />
+          <GeolocateControl />
+        </Map>
+      </div>
 
-        <GeolocateControl />
-      </Map>
+
     </div>
   )
 }

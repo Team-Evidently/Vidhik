@@ -30,9 +30,9 @@ const LDashboard = () => {
         <div className="mb-1 flex justify-between items-center text-center">
           <img src={logo} alt="" className="w-[200px] h-[75px]" />
           <div className=" items-center text-center flex gap-16">
-            <button className="flex items-center">
-              <IoMdNotifications className="text-[#a0a0a0] text-4xl hover:text-black" />
-              <div className="text-[#a0a0a0] text-xl ml-2 hover:text-black">Alerts</div>
+            <button className="flex items-center  hover:text-black">
+              <IoMdNotifications className="text-[#a0a0a0] text-4xl " />
+              <div className="text-[#a0a0a0] text-xl ml-2">Alerts</div>
             </button>
 
             <button className="flex items-center">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {BiSolidDashboard, BiLogOut} from "react-icons/bi";
 import {MdHub, MdPersonSearch} from "react-icons/md";
 import {BsListCheck, BsRobot} from "react-icons/bs";
-
+import lawyer from "../assets/lawyerprofile.jpeg";
 const Sidebar = () => {
   const [activeButton, setActiveButton] = useState("dashboard");
 
@@ -18,11 +18,11 @@ const Sidebar = () => {
       <div className="relative flex flex-col items-center mt-6 h-full w-auto">
         <img
           className="w-36 h-36 rounded-full mb-2"
-          src="https://via.placeholder.com/152x150"
+          src={lawyer}
           alt="Profile"
         />
         <div className="text-white text-lg font-extrabold font-['Inter'] mb-1">
-          Adv. Parth Gala
+          Adv. Amit Sharma
         </div>
         <div className="text-white text-lg font-light font-['Inter'] mb-4">
           Lawyer
@@ -80,20 +80,7 @@ const Sidebar = () => {
             Lawyers
           </button> 
           </Link>
-          <Link to ="./FindArbritrator">
-          <button
-            type="button"
-            className={`cursor-pointer ${
-              activeButton === "arbritrator"
-                ? "bg-[#F5F5F5] text-[#1450A3]"
-                : "text-[#BCBCBC]"
-            } text-sm font-semibold rounded-l-md mt-2 p-3 pl-10 ml-10 w-[260px] text-justify`}
-            onClick={() => handleButtonClick("arbritrator")}
-          >
-            <MdPersonSearch className="inline-block text-2xl mr-6"/>
-            File for arbritration
-          </button> 
-          </Link>
+          
           <Link to ="./LegalHub">
           <button
             type="button"

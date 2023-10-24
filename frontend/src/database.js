@@ -1,5 +1,18 @@
 // Local Database
 
+import lawyer1 from "./assets/lawyerprofile1.jpeg";
+import lawyer2 from "./assets/lawyerprofile2.jpeg";
+import lawyer3 from "./assets/lawyerprofile3.jpeg";
+import lawyer4 from "./assets/lawyerprofile4.jpeg";
+import lawyer5 from "./assets/lawyerprofile5.jpeg";
+import lawyer6 from "./assets/lawyerprofile6.jpeg";
+import lawyer7 from "./assets/lawyerprofile7.jpeg";
+import lawyer8 from "./assets/lawyerprofile8.jpeg";
+import lawyer9 from "./assets/lawyerprofile9.jpeg";
+import lawyer10 from "./assets/lawyerprofile10.jpeg";
+
+
+
 export const lawyers = [
   {
     "lawyer_name": "Amit Sharma",
@@ -7,7 +20,7 @@ export const lawyers = [
     "lawyer_password": "amit123",
     "bar_council_no": "BCN123",
     "email": "amit.sharma@example.com",
-    "photo_url": "https://images.app.goo.gl/GFHRkXec7FBceS6P9",
+    "photo_url": lawyer1,
     "phone_no": "1234567890",
     "aadhar_no": "123456789012",
     "gender": "Male",
@@ -31,7 +44,7 @@ export const lawyers = [
     "lawyer_password": "priya456",
     "bar_council_no": "BCN456",
     "email": "priya.verma@example.com",
-    "photo_url": "https://images.app.goo.gl/RxgGPFysUwAawqrJ6",
+    "photo_url": lawyer8,
     "phone_no": "9876543210",
     "aadhar_no": "987654321098",
     "gender": "Female",
@@ -55,7 +68,7 @@ export const lawyers = [
     "lawyer_password": "rahul789",
     "bar_council_no": "BCN789",
     "email": "rahul.kapoor@example.com",
-    "photo_url": "https://example.com/rahulkapoor.jpg",
+    "photo_url": lawyer4,
     "phone_no": "8765432109",
     "aadhar_no": "876543210987",
     "gender": "Male",
@@ -79,7 +92,7 @@ export const lawyers = [
     "lawyer_password": "neha345",
     "bar_council_no": "BCN345",
     "email": "neha.gupta@example.com",
-    "photo_url": "https://example.com/neha-gupta.jpg",
+    "photo_url": lawyer3,
     "phone_no": "7654321098",
     "aadhar_no": "765432109876",
     "gender": "Female",
@@ -103,7 +116,7 @@ export const lawyers = [
     "lawyer_password": "ankit567",
     "bar_council_no": "BCN567",
     "email": "ankit.malhotra@example.com",
-    "photo_url": "https://example.com/ankitmalhotra.jpg",
+    "photo_url": lawyer5,
     "phone_no": "6543210987",
     "aadhar_no": "654321098765",
     "gender": "Male",
@@ -127,7 +140,7 @@ export const lawyers = [
     "lawyer_password": "pooja234",
     "bar_council_no": "BCN234",
     "email": "pooja.desai@example.com",
-    "photo_url": "https://example.com/poojadesai.jpg",
+    "photo_url": lawyer10,
     "phone_no": "9876543210",
     "aadhar_no": "987654321098",
     "gender": "Female",
@@ -151,7 +164,7 @@ export const lawyers = [
     "lawyer_password": "rajeev678",
     "bar_council_no": "BCN678",
     "email": "rajeev.kapoor@example.com",
-    "photo_url": "https://example.com/rajeevkapoor.jpg",
+    "photo_url": lawyer6,
     "phone_no": "8765432109",
     "aadhar_no": "876543210987",
     "gender": "Male",
@@ -172,7 +185,7 @@ export const lawyers = [
   {
     "lawyer_name": "Deepika Shah",
     "vidhik_id": "V890123",
-    "lawyer_password": "deepika890",
+    "lawyer_password": lawyer3,
     "bar_council_no": "BCN890",
     "email": "deepika.shah@example.com",
     "photo_url": "https://example.com/deepikashah.jpg",
@@ -199,7 +212,7 @@ export const lawyers = [
     "lawyer_password": "sanjay012",
     "bar_council_no": "BCN012",
     "email": "sanjay.mehta@example.com",
-    "photo_url": "https://example.com/sanjaymehta.jpg",
+    "photo_url": lawyer7,
     "phone_no": "6543210987",
     "aadhar_no": "654321098765",
     "gender": "Male",
@@ -223,7 +236,7 @@ export const lawyers = [
     "lawyer_password": "shalini345",
     "bar_council_no": "BCN345",
     "email": "shalini.reddy@example.com",
-    "photo_url": "https://example.com/shalinireddy.jpg",
+    "photo_url": lawyer8  ,
     "phone_no": "9876543210",
     "aadhar_no": "987654321098",
     "gender": "Female",
@@ -247,7 +260,7 @@ export const lawyers = [
     "lawyer_password": "vikram567",
     "bar_council_no": "BCN567",
     "email": "vikram.patel@example.com",
-    "photo_url": "https://example.com/vikrampatel.jpg",
+    "photo_url": lawyer9,
     "phone_no": "8765432109",
     "aadhar_no": "876543210987",
     "gender": "Male",
@@ -271,7 +284,7 @@ export const lawyers = [
     "lawyer_password": "sneha789",
     "bar_council_no": "BCN789",
     "email": "sneha.bhatia@example.com",
-    "photo_url": "https://example.com/snehabhatia.jpg",
+    "photo_url": lawyer3,
     "phone_no": "7654321098",
     "aadhar_no": "765432109876",
     "gender": "Female",
@@ -295,7 +308,7 @@ export const lawyers = [
     "lawyer_password": "harish345",
     "bar_council_no": "BCN345",
     "email": "harish.singh@example.com",
-    "photo_url": "https://example.com/harishsingh.jpg",
+    "photo_url": lawyer6,
     "phone_no": "6543210987",
     "aadhar_no": "654321098765",
     "gender": "Male",
@@ -319,7 +332,7 @@ export const lawyers = [
     "lawyer_password": "smita567",
     "bar_council_no": "BCN567",
     "email": "smita.menon@example.com",
-    "photo_url": "https://example.com/smitamenon.jpg",
+    "photo_url": lawyer10,
     "phone_no": "6543210987",
     "aadhar_no": "654321098765",
     "gender": "Female",
@@ -343,7 +356,7 @@ export const lawyers = [
     "lawyer_password": "kunal123",
     "bar_council_no": "BCN123",
     "email": "kunal.trivedi@example.com",
-    "photo_url": "https://example.com/kunaltrivedi.jpg",
+    "photo_url": lawyer1,
     "phone_no": "1234567890",
     "aadhar_no": "123456789012",
     "gender": "Male",

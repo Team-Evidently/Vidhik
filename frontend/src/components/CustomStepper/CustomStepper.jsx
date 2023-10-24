@@ -9,7 +9,7 @@ import { Alert, Snackbar } from '@mui/material';
 
 const steps = ['Select an Arbitrator', 'Upload Details', 'Send Request'];
 
-export default function CustomStepper({ updateStep }) {
+export default function CustomStepper({ updateStep ,handleSubmit}) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
   const [submissionCompleted, setSubmissionCompleted] = React.useState(false);
@@ -65,6 +65,7 @@ export default function CustomStepper({ updateStep }) {
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
     // handleNext();
+    handleSubmit();
   };
 
   const handleCloseSnackbar = (event, reason) => {
@@ -76,38 +77,48 @@ export default function CustomStepper({ updateStep }) {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep} alternativeLabel>
-        {steps.map((label, index) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
+      <Stepper activeStep={activeStep} alternativeLabel sx={{ marginTop: "20px" }}>
+  {steps.map((label, index) => (
+    <Step key={label}>
+      <StepLabel
+        StepIconProps={{
+          style: {
+            color: index <= activeStep ? (index === activeStep ? 'blue' : 'green') : 'grey',
+            fontSize: "35px", // Adjust the font size for the step number
+          },
+        }}
+        className="text-lg" // Apply Tailwind CSS class for font size
+      >
+        {label}
+      </StepLabel>
+    </Step>
+  ))}
+</Stepper>
+
       <div>
         {allStepsCompleted() ? (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1 }}>
               All steps completed - you&apos;re finished
             </Typography>
-            
+
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
-              Step {activeStep + 1}
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'row',justifyContent:"space-between", pt: 2 ,width:"15%",marginLeft:"50px"}}>
               <Button
+                variant='outlined'
                 color="inherit"
                 disabled={activeStep === 0}
                 onClick={handleBack}
-                sx={{ mr: 1 }}
+                sx={{ mr: 1 ,fontSize:"16px"}}
+                
               >
                 Back
               </Button>
-              <Box sx={{ flex: '1 1 auto' }} />
-            
-              <Button onClick={isLastStep() ? handleComplete : handleNext} sx={{ mr: 1 }}>
+           
+
+              <Button onClick={isLastStep() ? handleComplete : handleNext} sx={{ mr: 1 ,fontSize:"16px"}} variant='contained'>
                 {isLastStep() ? 'Submit' : 'Next'}
               </Button>
             </Box>

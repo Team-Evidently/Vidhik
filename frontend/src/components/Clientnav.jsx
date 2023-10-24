@@ -98,6 +98,20 @@ const Clientnav = () => {
             LegalHub
           </button> 
           </Link> */}
+          <Link to ="./FindArbritrator">
+          <button
+            type="button"
+            className={`cursor-pointer ${
+              activeButton === "arbritrator"
+                ? "bg-[#F5F5F5] text-[#329D90]"
+                : "text-[#BCBCBC]"
+            } text-sm font-semibold rounded-l-md mt-2 p-3 pl-10 ml-10 w-[260px] text-justify`}
+            onClick={() => handleButtonClick("arbritrator")}
+          >
+            <MdPersonSearch className="inline-block text-2xl mr-6"/>
+            File for arbritration
+          </button> 
+          </Link>
          
           <button
             type="button"

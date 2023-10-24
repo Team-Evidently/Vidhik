@@ -48,7 +48,10 @@ const FindLSP = () => {
   
 
   return (
+    <>
+    <h3>Find Lawyers</h3>
     <div className=' flex justify-between px-10'>
+      
       <div className='grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 lg:gap-[30px]  lg:mt-[55px] '>
         {
           filteredLawyers.map(lawyer => (
@@ -60,6 +63,7 @@ const FindLSP = () => {
       <LSPFilter onFilterChange={handleFilterChange} setFilteredLawyers={setFilteredLawyers} />
       </div>
     </div>
+    </>
   )
 }
 
