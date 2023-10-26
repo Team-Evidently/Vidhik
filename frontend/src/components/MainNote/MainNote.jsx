@@ -54,7 +54,7 @@ const MainNote = () => {
         style={{
           position: 'absolute',
           left: '375px',
-		top: '560px',
+		top: '690px',
           color: '#000',
           fontFamily: 'Poppins',
           fontSize: '25px', 
@@ -65,7 +65,7 @@ const MainNote = () => {
       >
         My Notes
       </h1>
-			<div style={{position:'absolute',top:'600px'}}className='Maincontainer'>
+			<div style={{position:'absolute',top:'740px'}}className='Maincontainer'>
 				<NotesList
 					notes={notes.filter((note) =>
 						note.text.toLowerCase().includes(searchText)

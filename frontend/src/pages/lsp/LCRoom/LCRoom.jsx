@@ -8,6 +8,8 @@ import Meetingcard from "../../../components/MeetingCard/Meetingcard";
 import avatar from "../../../assets/avatar-icon.png";
 import PastHearing from "../../../components/PastHearing/PastHearing";
 import MainNote from "../../../components/MainNote/MainNote";
+import { Typography } from "@mui/material";
+import Divider from '@mui/material/Divider';
 
 const LCRoom = () => {
   return (
@@ -125,58 +127,35 @@ const LCRoom = () => {
               </button>
             </div>
           </div>
+          
          
         </div>
-        <Meetingcard> </Meetingcard>
-        <PastHearing></PastHearing>
+        <div className=' ml-[15px] mt-[10px] relative '>
+        <Typography variant="h2" style={{ color: '#000', fontFamily: 'Poppins', fontSize: '25px', fontWeight: '700' }}>
+          Case Details
+        </Typography>
+        <div style={{ borderRadius: '15px', width: '1100px', height: '350px', background: 'white', padding: '20px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div className='flex flex-col items-center'>
+              <Typography variant="h4">Land Dispute Settlement</Typography>
+              <div className='absolute left-10'>Case Number: XYZ123</div>
+              <Typography variant="h5">Vikram Singh vs Defendant</Typography>
+            </div>
+          </div>
+          <Divider style={{ margin: '15px 0' }} />
 
-        <div>
-          <h1
-        style={{
-          position: 'absolute',
-          left: '375px',
-          color: '#000',
-          fontFamily: 'Poppins',
-          fontSize: '25px', 
-          fontWeight: '700',
-          marginTop: '10px',
-        }}
-        className=""
-      >
-        Case Details 
-      </h1>
-
-    <div
-      style={{
-        borderRadius: '15px',
-        position: 'absolute',
-        left: '375px',
-        top: '340px',
-      }}
-      className="w-[360px] bg-white"
-    >
-      
-
-      <div
-        style={{
-          height: '200px',
-          width:'600px',
-          background: 'white',
-          borderRadius: '15px',
-          
-        }}
-        className="mt-2"
-      > <div  
-      className="">
-        
+          <h2 className='text__para text-[15px]'>
+            Description: In this Indian land dispute case, Vikram Singh, the plaintiff, and the defendant are entangled in a legal battle over a piece of land situated in a rural area near Jaipur, Rajasthan. The dispute revolves around conflicting claims regarding the ownership and boundaries of the land, adding complexity to the case.
+          </h2>
+          <h2 className='text__para text-[15px]'>
+            Vikram Singh asserts his rightful ownership based on ancestral documents and traditional land records, while the defendant challenges these claims, presenting alternative historical evidence. The court aims to navigate through the intricacies of Indian land laws and cultural nuances to arrive at a fair and just resolution that respects the legal rights of both parties involved.
+          </h2>
         </div>
       </div>
+        <Meetingcard> </Meetingcard>
+        {/* <PastHearing></PastHearing> */}
 
-      <div className="flex justify-center mt-auto">
        
-      </div>
-    </div>
-    </div>
     
     <MainNote>  </MainNote>
       </div>

@@ -22,7 +22,7 @@ function MeetingCard() {
         borderRadius: '15px',
         position: 'absolute',
         right: '26px',
-        top: '340px',
+        top: '325px',
       }}
       className="h-[500px] w-[360px] bg-white"
     >
