@@ -34,7 +34,7 @@ const LSchedule = () => {
               height="100%"
             />
           </div>
-          <div className="h-[320px] w-[950px] bg-white rounded-xl m-4 ml-8 mt-0">
+          <div className="h-[320px] w-[1100px] bg-white rounded-xl m-4 ml-8 mt-0">
             <img
               src={schedule}
               alt="Your SVG Image"
@@ -84,7 +84,7 @@ const LSchedule = () => {
               }}
               className=""
             >
-              John Doe
+              Vikram Singh
             </p>
             <p
               style={{
@@ -98,7 +98,7 @@ const LSchedule = () => {
               }}
               className=""
             >
-              john.doe@example.com
+              vikram.singh@mail.com
             </p>
             <p
               style={{
@@ -112,7 +112,7 @@ const LSchedule = () => {
               }}
               className=""
             >
-              123-456-7890
+              8245789651
             </p>
             <p
               style={{
@@ -142,7 +142,7 @@ const LSchedule = () => {
               }}
               className=""
             >
-              A line giving brief description of the case and a note maybe.
+           Legal battle over a piece of land
             </p>
             <button
               style={{
@@ -184,7 +184,7 @@ const LSchedule = () => {
               }}
               className=" "
             >
-              Guju
+              Gujurati
             </button>
             <Link to="/LCRoom">
               <button
@@ -206,7 +206,7 @@ const LSchedule = () => {
                 }}
                 className="  "
               >
-                Room
+                Client Room
               </button>
             </Link>
             <button
@@ -273,7 +273,7 @@ const LSchedule = () => {
               }}
               className=""
             >
-              john.doe@example.com
+              john.doe@mail.com
             </p>
             <p
               style={{
@@ -287,7 +287,7 @@ const LSchedule = () => {
               }}
               className=""
             >
-              123-456-7890
+              5465238659
             </p>
             <p
               style={{
@@ -317,7 +317,7 @@ const LSchedule = () => {
               }}
               className=""
             >
-              A line giving brief description of the case and a note maybe.
+             Drug case in the court
             </p>
             <button
               style={{
@@ -359,7 +359,7 @@ const LSchedule = () => {
               }}
               className=" "
             >
-              Guju
+              Christian
             </button>
             <Link to="/LCRoom">
               <button
@@ -381,7 +381,7 @@ const LSchedule = () => {
                 }}
                 className="  "
               >
-                Room
+                Client Room
               </button>
             </Link>
             <button
