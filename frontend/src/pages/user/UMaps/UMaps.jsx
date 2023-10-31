@@ -47,7 +47,7 @@ const UMaps = () => {
       <Map
         mapboxAccessToken={REACT_APP_MAP_KEY}
         style={{
-          width: "100vw-150px",
+          width: "100vw",
           height: "500px",
           borderRadius: "15px",
           border: "2px solid red",
@@ -67,12 +67,35 @@ const UMaps = () => {
           latitude={lat}
           style={{ cursor: "default" }}
           onClick={() => handleMarkerClick("V123456")}
+          color="black"
         />
         <Marker
           longitude={lng1}
           latitude={lat1}
           style={{ cursor: "default" }}
           onClick={() => handleMarkerClick("V567890")}
+          color="black"
+        />
+         <Marker
+          longitude='72.846'
+          latitude='19.188924'
+          style={{ cursor: "default" }}
+          onClick={() => handleMarkerClick("V123451")}
+          color="black"
+        />
+         <Marker
+          longitude='72.846'
+          latitude='19.1862'
+          style={{ cursor: "default" }}
+          onClick={() => handleMarkerClick("V123452")}
+          color="black"
+        />
+          <Marker
+          longitude='72.8476'
+          latitude='19.188'
+          style={{ cursor: "default" }}
+          onClick={() => handleMarkerClick("V345678")}
+          color="black"
         />
 
         <NavigationControl position="bottom-right" showZoom='True'/>

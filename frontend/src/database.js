@@ -116,7 +116,7 @@ export const lawyers = [
   },
   {
     "lawyer_name": "Ankit Malhotra",
-    "vidhik_id": "V567890",
+    "vidhik_id": "V567891",
     "lawyer_password": "ankit567",
     "bar_council_no": "BCN567",
     "email": "ankit.malhotra@example.com",
@@ -260,7 +260,7 @@ export const lawyers = [
   },
   {
     "lawyer_name": "Vikram Patel",
-    "vidhik_id": "V567890",
+    "vidhik_id": "V567892",
     "lawyer_password": "vikram567",
     "bar_council_no": "BCN567",
     "email": "vikram.patel@example.com",
@@ -356,7 +356,7 @@ export const lawyers = [
   },
   {
     "lawyer_name": "Kunal Trivedi",
-    "vidhik_id": "V123456",
+    "vidhik_id": "V123451",
     "lawyer_password": "kunal123",
     "bar_council_no": "BCN123",
     "email": "kunal.trivedi@example.com",
@@ -383,7 +383,7 @@ export const lawyers = [
 export const arbitrators = [
   {
     "arbitrator_name": "Amit Sharma",
-    "vidhik_id": "V123456",
+    "vidhik_id": "V123452",
     "arbitrator_id": "A123456",
     "arbitrator_password": "amit123",
     "email": "amit.sharma@example.com",
@@ -440,7 +440,7 @@ export const arbitrators = [
   {
     "arbitrator_name": "Ankit Malhotra",
     "arbitrator_id": "A567890",
-    "vidhik_id": "V567890",
+    "vidhik_id": "V567893",
     "arbitrator_password": "ankit567",
     "email": "ankit.malhotra@example.com",
     "photo_url": lawyer11,
