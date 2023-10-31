@@ -163,19 +163,19 @@ const Uroom = () => {
 
 
   const hearingDates = [
-    { serialNumber: 9, hearingNumber: 'Hearing 009', date: '2024-03-05' },
-    { serialNumber: 8, hearingNumber: 'Hearing 008', date: '2024-02-15' },
-    { serialNumber: 7, hearingNumber: 'Hearing 007', date: '2024-02-05' },
-    { serialNumber: 6, hearingNumber: 'Hearing 006', date: '2024-01-15' },
-    { serialNumber: 5, hearingNumber: 'Hearing 005', date: '2024-01-05' },
-    { serialNumber: 4, hearingNumber: 'Hearing 004', date: '2023-12-15' },
-    { serialNumber: 3, hearingNumber: 'Hearing 003', date: '2023-12-05' },
-    { serialNumber: 2, hearingNumber: 'Hearing 002', date: '2023-11-15' },
-    { serialNumber: 1, hearingNumber: 'Hearing 001', date: '2023-11-01' },
+    { serialNumber: 9, hearingNumber: 'Hearing 009', date: '2023-03-05' },
+    { serialNumber: 8, hearingNumber: 'Hearing 008', date: '2023-02-15' },
+    { serialNumber: 7, hearingNumber: 'Hearing 007', date: '2023-02-05' },
+    { serialNumber: 6, hearingNumber: 'Hearing 006', date: '2023-01-15' },
+    { serialNumber: 5, hearingNumber: 'Hearing 005', date: '2023-01-05' },
+    { serialNumber: 4, hearingNumber: 'Hearing 004', date: '2022-12-15' },
+    { serialNumber: 3, hearingNumber: 'Hearing 003', date: '2022-12-05' },
+    { serialNumber: 2, hearingNumber: 'Hearing 002', date: '2022-11-15' },
+    { serialNumber: 1, hearingNumber: 'Hearing 001', date: '2022-11-01' },
   ];
 
   const nextMeeting = {
-    date: '2024-03-20',
+    date: '2023-10-31',
     topic: 'Project Update and Planning',
   };
 
@@ -369,7 +369,7 @@ const Uroom = () => {
                 </div>
               </div>
               <button className="flex items-center px-3 py-2 rounded-md w-[120px] h-[60px] justify-center text-2xl">
-                26 OCT
+                26 NOV
               </button>
             </button>
            

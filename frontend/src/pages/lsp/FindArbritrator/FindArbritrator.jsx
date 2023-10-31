@@ -110,7 +110,7 @@ const FindArbritrator = () => {
     setIsVerifying(true);
     setTimeout(() => {
       setIsVerifying(false);
-      navigate('/client/room');
+      navigate('/Uroom');
     }, 3000);
   };
 

@@ -26,6 +26,10 @@ const Clientnav = () => {
         <div className="text-white text-lg font-light font-['Inter'] mb-4">
           Client
         </div>
+        <div className="text-white text-lg font-light font-['Inter'] mb-4">
+          Loyalty Score: 140
+        </div>
+
 
         <div className="mt-10 flex flex-col w-full">
           <Link to="./UDashboard">
@@ -84,7 +88,7 @@ const Clientnav = () => {
               File for arbritration
             </button>
           </Link>
-
+          <Link to="/LegalBot">
           <button
             type="button"
             className={`cursor-pointer ${
@@ -97,6 +101,7 @@ const Clientnav = () => {
             <BsRobot className="inline-block text-2xl mr-6" />
             Legal Bot
           </button>
+          </Link>
 
           <button
             type="button"

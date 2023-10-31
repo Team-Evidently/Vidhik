@@ -21,7 +21,7 @@ const Module = () => {
             </div>
         )
     }
-    else if(location.pathname === '/UDashboard' || location.pathname === '/Uroom' || location.pathname === '/UFindLSP' || location.pathname === '/client/profile/:id' || location.pathname === '/FindArbritrator'){
+    else if(location.pathname === '/UDashboard' || location.pathname === '/Uroom' || location.pathname === '/UFindLSP' || location.pathname === '/client/profile/:id' || location.pathname === '/FindArbritrator'||location.pathname == "/LegalBot"){
         return(
             <div>
                 <main className='bg-[#F5F5F5]'>
