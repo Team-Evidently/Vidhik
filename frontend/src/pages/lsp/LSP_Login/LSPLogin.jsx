@@ -27,7 +27,7 @@ const LSPLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    localStorage.setItem("isLSPLoggedIn", true);
   
     setOpenSnackbar(true);
 

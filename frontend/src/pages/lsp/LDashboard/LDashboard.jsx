@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { FaClipboardList } from "react-icons/fa";
 import avatar from "../../../assets/avatar-icon.png";
+import myPdf from "../../../utils/myPdf.pdf";
+import Tooltip from '@mui/material/Tooltip';
 import {
   AiFillCloseCircle,
   AiFillCheckCircle,
@@ -16,13 +18,41 @@ import { IoDiamond } from "react-icons/io5";
 import { IoMdNotifications } from "react-icons/io";
 import { BiSolidHelpCircle } from "react-icons/bi";
 import { CustomLine } from "../../../components/Charts/Line";
-
+import CircularProgressWithLabel from "../../../components/CircularProgressWithLabel/CircularProgressWithLabel";
+import vikram from "../../../assets/clientprofile.jpeg";
+import { useSocket } from "../../user/Meeting/context/SocketProvider";
+import { CircularProgress, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const LDashboard = () => {
+  const navigate = useNavigate();
+  const socket = useSocket();
+  const [email, setEmail] = useState("");
+  const [room, setRoom] = useState("");
+
+  useEffect(() => {
+    setEmail(localStorage.getItem("email_id"));
+    let room = 456;
+    setRoom(room);
+  }, []);
+
   const [activeButton, setActiveButton] = useState("case1");
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
   };
+
+
+  const handleSubmitForm = useCallback(
+    (e) => {
+      e.preventDefault();
+      console.log(email, room);
+      socket.emit("room:join", { email, room });
+      navigate('/room/456')
+    },
+    [email, room, socket]
+  );
+
+
   return (
     <div className="bg-[#F5F5F5] min-h-screen flex">
       {/* <Sidenav /> */}
@@ -76,7 +106,7 @@ const LDashboard = () => {
                 type="button"
                 className={`cursor-default text-sm font-semibold rounded-md mt-2 p-3 w-[100%] text-justify bg-inherit flex items-center`}
                 onClick={() => handleButtonClick("case1")}>
-                <div className="flex items-center justify-start w-full">
+                <div className="flex items-center justify-start w-full ">
                   <PiMedalFill className="inline-block text-6xl m-3 bg-[#47E52E] bg-opacity-50 p-1 border border-black rounded-lg" />
                   <div className="flex flex-col">
                     <div className="justify-center content-center text-start text-btnColor font-bold text-lg">
@@ -234,25 +264,25 @@ const LDashboard = () => {
               >
                 <div className="flex items-center justify-start w-full">
                   <img
-                    className="inline-block text-4xl m-3 w-14 h-14 rounded-full mb-2"
-                    src={avatar}
+                    className="inline-block text-4xl m-3 w-14 h-14 rounded-full mb-2 object-cover"
+                    src={vikram}
                     alt="Profile"
                   />
                   <div className="flex flex-col">
                     <div className="flex items-center text-lg">
                       <span className="font-semibold text-lg text-iconColor">
-                        Parth Gala
+                        Vikram Singh
                       </span>
                     </div>
                     <div className="justify-center content-center text-start text-iconColor font-thin text-base">
-                      Home Affairs
+                      Land Dispute
                     </div>
                   </div>
                 </div>
                 <button className="flex items-center px-3 py-2 text-iconColor rounded-md w-[120px] h-[60px] justify-center text-lg">
                   Now
                 </button>
-                <button className="flex items-center bg-[#f7f7f7] px-3 py-2 rounded-md w-[120px] h-[60px] justify-center text-lg">
+                <button className="flex items-center bg-[#f7f7f7] px-3 py-2 rounded-md w-[120px] h-[60px] justify-center text-lg" onClick={handleSubmitForm}>
                   Join
                 </button>
               </button>
@@ -329,7 +359,7 @@ const LDashboard = () => {
               Progression Chart
             </div>
             <div>
-              <CustomLine/>
+              <CustomLine />
             </div>
           </div>
 
@@ -347,14 +377,14 @@ const LDashboard = () => {
               >
                 <div className="flex items-center justify-start w-full">
                   <img
-                    className="inline-block text-4xl m-3 w-14 h-14 rounded-full mb-2"
-                    src={avatar}
+                    className="inline-block text-4xl m-3 w-14 h-14 rounded-full mb-2 object-cover"
+                    src={vikram}
                     alt="Profile"
                   />
                   <div className="flex flex-col">
                     <div className="flex items-center text-lg">
                       <span className="font-semibold text-lg text-iconColor">
-                        Vatsal Sanchala
+                        Vikram Singh
                       </span>
                     </div>
                     <div className="justify-center content-center text-start text-iconColor font-thin text-base">
@@ -362,7 +392,37 @@ const LDashboard = () => {
                     </div>
                   </div>
                 </div>
-                <button className="flex items-center bg-[#f7f7f7] px-3 py-2 rounded-md w-[120px] h-[60px] justify-center text-lg m-2">
+                {/* <CircularProgressWithLabel value={40} /> */}
+                <Tooltip title={`According our system this Case is 40% according to your skills`} arrow sx={{
+                  fontSize: '5.5em',
+                  textAlign: 'center', 
+                  scale: 1.1,
+                }}>
+                <CircularProgress
+                  variant="determinate"
+                  value={40}
+                  size="100px"
+                  sx={{
+                    color: '#329D90', // Your desired color
+                  }}
+                />
+                </Tooltip>
+                <Typography
+                  variant="body2"
+                  component="div"
+                  sx={{
+                    position: 'absolute',
+                    top: '52%',
+                    left: '60%',
+                    transform: 'translate(-50%, -50%)',
+                    fontWeight: 'bold',
+                    fontSize: '16px',
+                    color: '#329D90', // Your desired color
+                  }}
+                >
+                  {`${Math.round(40)}%`}
+                </Typography>
+                <button className="flex items-center bg-[#f7f7f7] px-3 py-2 rounded-md w-[120px] h-[60px] justify-center text-lg m-2" onClick={()=>window.open(myPdf, "_blank")}>
                   View
                 </button>
                 <button className="justify-center m-2">

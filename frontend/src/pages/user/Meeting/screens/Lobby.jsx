@@ -61,7 +61,7 @@ const LobbyScreen = () => {
     };
   }, [socket]);
 
-  const handleSubmitForm = useCallback(
+ const handleSubmitForm = useCallback(
     (e) => {
       e.preventDefault();
       socket.emit("room:join", { email, room });

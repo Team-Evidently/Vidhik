@@ -47,28 +47,44 @@ const Module = () => {
             </div>
         )
     }
-    else{
+    if (localStorage.getItem('isLSPLoggedIn') === 'true') {
         return (
-            <div>
-                {/* <Header /> */}
-                <main className='bg-[#F5F5F5]'>
-                    <Sidebar />
-                    <div className='ml-[340px] '>
-                    <Router />
-                    </div>
-                    
-                </main>
-                {/* <main className='flex w-full'>
-                    <Sidebar />
-                    <div className=''>
-                    <Router />
-                    </div>
-                    
-                    
-                </main> */}
-            </div>
-        )
-    }
-}
+          <div>
+            {/* <Header /> */}
+            <main className='bg-[#F5F5F5]'>
+              <Sidebar />
+              <div className='ml-[340px] '>
+                <Router />
+              </div>
+            </main>
+          </div>
+        );
+      } else if (localStorage.getItem('isUserLoggedIn') === 'true') {
+        return (
+          <div>
+            {/* <Header /> */}
+            <main className='bg-[#F5F5F5]'>
+              <Clientnav />
+              <div className='ml-[340px] '>
+                <Router />
+              </div>
+            </main>
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            {/* <Header /> */}
+            <main className='bg-[#F5F5F5]'>
+              <div className='ml-[340px] '>
+                <Router />
+              </div>
+            </main>
+          </div>
+        );
+      }
+    };
+    
+
 
 export default Module

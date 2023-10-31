@@ -8,6 +8,7 @@ import Meetingcard from "../../../components/MeetingCard/Meetingcard";
 import avatar from "../../../assets/avatar-icon.png";
 import PastHearing from "../../../components/PastHearing/PastHearing";
 import MainNote from "../../../components/MainNote/MainNote";
+import vikram from "../../../assets/clientprofile.jpeg"
 import { Typography } from "@mui/material";
 import Divider from '@mui/material/Divider';
 
@@ -18,7 +19,7 @@ const LCRoom = () => {
       <div className=" p-4 w-full">
         <div style={{position:'relative',height:"75px"}}className=" text-3xl font-4 mb-4">
           <img style={{position:'absolute',left:'0px'}}src={logo} alt="" className="w-[200px] h-auto" />
-          <img style={{position:'absolute',right:'0px'}}src={avatar} alt="" className="w-[75px] h-auto" />
+          <img style={{position:'absolute',right:'0px'}}src={vikram} alt="" className="w-[75px] h-auto rounded-full object-fit" />
           <p style={{position:'absolute',right:'100px',top:'15px',color:'#329D90',fontSize:'28px',fontWeight:'800'}}>Vikram Singh</p>
 
         </div>

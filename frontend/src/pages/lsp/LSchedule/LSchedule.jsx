@@ -3,8 +3,8 @@ import logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
 import calender from "../../../assets/calender.svg";
 import schedule from "../../../assets/schedule.svg";
-// import avator from "../../../assets/avator.png";
 import avatar from "../../../assets/avatar-icon.png";
+import vikram from "../../../assets/clientprofile.jpeg";
 
 const LSchedule = () => {
   return (
@@ -68,9 +68,9 @@ const LSchedule = () => {
                 height: "100px",
                 width: "100px",
               }}
-              src={avatar}
+              src={vikram}
               alt="Avatar"
-              className=" rounded-full"
+              className=" rounded-full object-cover"
             />
             <p
               style={{
@@ -231,7 +231,7 @@ const LSchedule = () => {
               140 Loyalty
             </button>
           </div>
-          <div
+          {/* <div
             style={{ position: "relative", borderRadius: "15px" }}
             className="h-[240px] w-[550px] bg-white ml-9 "
           >
@@ -405,7 +405,7 @@ const LSchedule = () => {
             >
               140 Loyalty
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

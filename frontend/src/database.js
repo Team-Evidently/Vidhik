@@ -10,6 +10,10 @@ import lawyer7 from "./assets/lawyerprofile7.jpeg";
 import lawyer8 from "./assets/lawyerprofile8.jpeg";
 import lawyer9 from "./assets/lawyerprofile9.jpeg";
 import lawyer10 from "./assets/lawyerprofile10.jpeg";
+import lawyer11 from "./assets/lawyerprofile11.jpeg";
+import lawyer12 from "./assets/lawyerprofile12.jpeg";
+import lawyer13 from "./assets/lawyerprofile13.jpeg";
+import avatar from "./assets/avatar01.png";
 
 
 
@@ -383,7 +387,7 @@ export const arbitrators = [
     "arbitrator_id": "A123456",
     "arbitrator_password": "amit123",
     "email": "amit.sharma@example.com",
-    "photo_url": "https://images.app.goo.gl/GFHRkXec7FBceS6P9",
+    "photo_url": avatar,
     "phone_no": "1234567890",
     "gender": "Male",
     "experience_in_years": 10,
@@ -397,7 +401,7 @@ export const arbitrators = [
     "vidhik_id": "V654321",
     "arbitrator_password": "priya456",
     "email": "priya.verma@example.com",
-    "photo_url": "https://images.app.goo.gl/RxgGPFysUwAawqrJ6",
+    "photo_url": lawyer8,
     "phone_no": "9876543210",
     "gender": "Female",
     "experience_in_years": 8,
@@ -411,7 +415,7 @@ export const arbitrators = [
     "vidhik_id": "V789012",
     "arbitrator_password": "rahul789",
     "email": "rahul.kapoor@example.com",
-    "photo_url": "https://example.com/rahulkapoor.jpg",
+    "photo_url": lawyer13,
     "phone_no": "8765432109",
     "gender": "Male",
     "experience_in_years": 12,
@@ -420,12 +424,12 @@ export const arbitrators = [
     "cases_involved": ["Case345", "Case678"]
   },
   {
-    "arbitrator_name": "Neha Gupta",
+    "arbitrator_name": "Shrey Gupta",
     "arbitrator_id": "A345678",
     "vidhik_id": "V345678",
     "arbitrator_password": "neha345",
     "email": "neha.gupta@example.com",
-    "photo_url": "https://example.com/neha-gupta.jpg",
+    "photo_url": lawyer12,
     "phone_no": "7654321098",
     "gender": "Female",
     "experience_in_years": 15,
@@ -439,7 +443,7 @@ export const arbitrators = [
     "vidhik_id": "V567890",
     "arbitrator_password": "ankit567",
     "email": "ankit.malhotra@example.com",
-    "photo_url": "https://example.com/ankitmalhotra.jpg",
+    "photo_url": lawyer11,
     "phone_no": "6543210987",
     "gender": "Male",
     "experience_in_years": 10,
@@ -453,7 +457,7 @@ export const arbitrators = [
     "vidhik_id": "V234567",
     "arbitrator_password": "pooja234",
     "email": "pooja.desai@example.com",
-    "photo_url": "https://example.com/poojadesai.jpg",
+    "photo_url": lawyer3,
     "phone_no": "9876543210",
     "gender": "Female",
     "experience_in_years": 11,
@@ -467,7 +471,7 @@ export const arbitrators = [
     "vidhik_id": "V678901",
     "arbitrator_password": "rajeev678",
     "email": "rajeev.kapoor@example.com",
-    "photo_url": "https://example.com/rajeevkapoor.jpg",
+    "photo_url": lawyer7,
     "phone_no": "8765432109",
     "gender": "Male",
     "experience_in_years": 13,
@@ -481,7 +485,7 @@ export const arbitrators = [
     "vidhik_id": "V890123",
     "arbitrator_password": "deepika890",
     "email": "deepika.shah@example.com",
-    "photo_url": "https://example.com/deepikashah.jpg",
+    "photo_url": lawyer8,
     "phone_no": "7654321098",
     "gender": "Female",
     "experience_in_years": 12,
@@ -495,7 +499,7 @@ export const arbitrators = [
     "vidhik_id": "V012345",
     "arbitrator_password": "sanjay012",
     "email": "sanjay.mehta@example.com",
-    "photo_url": "https://example.com/sanjaymehta.jpg",
+    "photo_url": lawyer1,
     "phone_no": "6543210987",
     "gender": "Male",
     "experience_in_years": 10,
@@ -509,7 +513,7 @@ export const arbitrators = [
     "vidhik_id": "V345678",
     "arbitrator_password": "shalini345",
     "email": "shalini.reddy@example.com",
-    "photo_url": "https://example.com/shalinireddy.jpg",
+    "photo_url": lawyer3,
     "phone_no": "9876543210",
     "gender": "Female",
     "experience_in_years": 8,
@@ -523,7 +527,7 @@ export const arbitrators = [
     "vidhik_id": "V567890",
     "arbitrator_password": "vikram567",
     "email": "vikram.patel@example.com",
-    "photo_url": "https://example.com/vikrampatel.jpg",
+    "photo_url": lawyer13,
     "phone_no": "8765432109",
     "gender": "Male",
     "experience_in_years": 11,

@@ -41,6 +41,7 @@ const UMaps = () => {
           zoom={5}
         >
           <Marker longitude={lng} latitude={lat} />
+          <Marker longitude={92.8777} latitude={29.0760} />
           <NavigationControl position="bottom-right" />
           <FullscreenControl />
           <GeolocateControl />

@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [react()],
   define: {
     'process.env': process.env
+  },
+  optimizeDeps: {
+    exclude: ['react-map-gl-geocoder']
   }
 })

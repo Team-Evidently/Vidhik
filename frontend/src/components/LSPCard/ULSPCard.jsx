@@ -8,13 +8,20 @@ import twitter from '../../assets/twitter.png';
 import linkedin from '../../assets/linkedin.png';
 import { Link } from 'react-router-dom';
 import { BsCheckAll } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 const ULSPCard = ({ person }) => {
+  const navigate = useNavigate();
   const isLawyer = person.lawyer_name != null;
   const isArbitrator = person.arbitrator_name != null;
 
   if (!isLawyer && !isArbitrator) {
     return <div />;
   }
+
+  const handleClick = () => {
+    console.log("sskdksjd");
+    navigate(`/client/profile/${person.id}`);
+  };
 
   const title = isLawyer ? person.lawyer_name : person.arbitrator_name;
   const profession = isLawyer ? 'Lawyer' : person.profession;
@@ -54,9 +61,8 @@ const ULSPCard = ({ person }) => {
         </div>
         <div className='flex justify-between gap-2 items-center px-10 mt-10'>
           <button className="border border-solid border-btnColor px-4 py-2 rounded-md font-semibold w-40">Message</button>
-          <Link to={"/client/profile/:id"}>
-          <button className='btn w-40'>Connect</button>
-          </Link>
+          <button className='btn w-40' onClick={handleClick}>Connect</button>
+
         </div>
       </center>
 

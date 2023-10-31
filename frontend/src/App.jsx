@@ -2,6 +2,7 @@ import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 import Router from './routes/router'
 import Module from './modules/Module'
+// import Test from './components/test'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <>
       <BrowserRouter>
         <Module />
+        {/* <Test /> */}
 
       </BrowserRouter>
 

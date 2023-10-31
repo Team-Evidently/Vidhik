@@ -6,18 +6,19 @@ import Feedback from '../../../components/Feedback/Feedback'
 import lawyer01 from "../../../assets/lawyer01.jpeg"
 import location from '../../../assets/location.gif'
 import Sidecard from './Sidecard'
+import lawyerprofile9 from "../../../assets/lawyerprofile9.jpeg"
 import jsPDF from 'jspdf';
 
 const Profile = () => {
 
     const lawyers = {
-        "lawyer_name": "John Doe",
+        "lawyer_name": "Amit Sharma",
         "vidhik_id": "V123456",
-        "lawyer_password": "john123",
+        "lawyer_password": "amit123",
         "bar_council_no": "BCN123",
         "age": 30,
-        "email": "john.doe@example.com",
-        "photo_url": "https://images.app.goo.gl/GFHRkXec7FBceS6P9",
+        "email": "amit.sharma@example.com",
+        "photo_url": lawyerprofile9,
         "phone_no": "1234567890",
         "aadhar_no": "123456789012",
         "gender": "Male",
@@ -26,7 +27,6 @@ const Profile = () => {
         "no_of_past_cases_won": 30,
         "rating": 4.5,
         "speciality": ["Criminal Defense", "Family Law"],
-        // "practicing_court": ["Supreme Court", "High Court"],
         "lawyer_location": "Cityville",
         "languages_known": ["English", "Spanish"],
         "experience_in_years": 10,
@@ -34,25 +34,26 @@ const Profile = () => {
         "cases_involved": ["Case123", "Case456"],
         "lawyer_type": ["Advocate"],
         "additional_ids": ["AIBE123", "OS456", "ST789", "StateName"],
-        "bio":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam modi nihil rem repellendus odit obcaecati debitis, nobis, laborum autem excepturi praesentium quos. Error aspernatur cum facilis aperiam ex voluptas alias!",
+        "bio": "With a decade of legal expertise, I am passionate about upholding justice and providing effective legal solutions. Specializing in Criminal Defense and Family Law, I have successfully handled numerous cases, earning the trust of clients and colleagues alike. My commitment to excellence is reflected in my impressive track record of 30 wins out of 50 past cases. I believe in continuous learning and hold a Bachelor of Laws (LLB) from City University and a Master of Laws (LLM) from State University. Fluent in English and Spanish, I am dedicated to serving the legal needs of the community in and around Cityville.",
         "skills": ["Litigation", "Negotiation", "Legal Research"],
         "education": [
-            {
-              "degree": "Bachelor of Laws (LLB)",
-              "university": "City University",
-              "city": "Cityville",
-              "start_year": 2008,
-              "end_year": 2012
-            },
-            {
-              "degree": "Master of Laws (LLM)",
-              "university": "State University",
-                "city": "Stateville",
-              "start_year": 2012,
-              "end_year": 2014
-            }
-          ]
-    };
+          {
+            "degree": "Bachelor of Laws (LLB)",
+            "university": "City University",
+            "city": "Cityville",
+            "start_year": 2008,
+            "end_year": 2012
+          },
+          {
+            "degree": "Master of Laws (LLM)",
+            "university": "State University",
+            "city": "Stateville",
+            "start_year": 2012,
+            "end_year": 2014
+          }
+        ]
+      };
+      
 
     const [tab, settab] = useState('about')
 
@@ -88,7 +89,7 @@ const Profile = () => {
                             <div className="md:col-span-2">
                                 <div className="flex items-center gap-5 ">
                                     <figure className='min-w-[300px] min-h-[300px]  '>
-                                        <img src={lawyer01} alt="" className='w-full' />
+                                        <img src={lawyerprofile9} alt="" className='w-full' />
                                     </figure>
 
                                     <div className=' min-h-[300px]'>

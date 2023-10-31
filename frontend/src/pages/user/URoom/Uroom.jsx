@@ -10,7 +10,7 @@ import avatar from "../../../assets/avatar-icon.png";
 import MainNote from "../../../components/MainNote/MainNote";
 // import PastHearing from "../../../components/PastHearing/PastHearing";
 import { Link } from "react-router-dom";
-import { Typography } from "@mui/material";
+import { IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
@@ -21,8 +21,13 @@ import { Button } from 'react-scroll';
 import React, { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSocket } from "../Meeting/context/SocketProvider";
+import { useTranslation } from 'react-i18next'
+import i18next from 'i18next'
+import { LOCALS } from '../../../translation/constants'
 
-
+import i18n from '../../../translation/index'
+import LanguageIcon from '@mui/icons-material/Language';
+import vikram from "../../../assets/lawyerprofile9.jpeg";
 
 
 
@@ -34,10 +39,11 @@ const Uroom = () => {
   const [room, setRoom] = useState("");
   const [chatMessage, setChatMessage] = useState("");
   const [chatMessages, setChatMessages] = useState([]);
- const [openDialog, setOpenDialog] = useState(false); // State to control the dialog
- const [selectedDate, setSelectedDate] = useState(new Date());
- const [content, setContent] = useState("");
- const [selectedTime, setSelectedTime] = useState("00:00");
+  const [openDialog, setOpenDialog] = useState(false); // State to control the dialog
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [content, setContent] = useState("");
+  const [selectedTime, setSelectedTime] = useState("00:00");
+  const { t } = useTranslation()
 
   const socket = useSocket();
   const navigate = useNavigate();
@@ -100,60 +106,60 @@ const Uroom = () => {
     }
   };
 
- const handleOpenDialog = () => {
-   setOpenDialog(true);
- };
+  const handleOpenDialog = () => {
+    setOpenDialog(true);
+  };
 
- const handleCloseDialog = () => {
-   setOpenDialog(false);
- };
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
 
- const handleDateChange = (date) => {
-   setSelectedDate(date);
- };
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
 
- const handleContentChange = (e) => {
-   setContent(e.target.value);
- };
-
-
-
- const handleTimeChange = (e) => {
-  setSelectedTime(e.target.value);
-};
-
-const notification = {
-  userID: "user1-uid",
-  createdBy: "user2-uid",
-  links: {
-    meeting: "https://meet.google.com/abc-def-ghi",
-    profile: "https://example.com/user-profile",
-  },
-  status: "open",
-  subscribers: ["user1-uid", "user2-uid"],
-  content: "You have a meetibjhkhhjng with John Doe in 15 minutes.",
-};
+  const handleContentChange = (e) => {
+    setContent(e.target.value);
+  };
 
 
-const handleCreateNotification = async () => {
-  try {
-    
-    await createNotification(notification);
-    console.log('Notification created successfully!');
-    handleCloseDialog();
-  } catch (error) {
-    console.error('Error creating notification:', error);
 
-  }
-};
+  const handleTimeChange = (e) => {
+    setSelectedTime(e.target.value);
+  };
+
+  const notification = {
+    userID: "user1-uid",
+    createdBy: "user2-uid",
+    links: {
+      meeting: "https://meet.google.com/abc-def-ghi",
+      profile: "https://example.com/user-profile",
+    },
+    status: "open",
+    subscribers: ["user1-uid", "user2-uid"],
+    content: "You have a meetibjhkhhjng with John Doe in 15 minutes.",
+  };
 
 
-const getAllNotifications = async () => {
-  const notifications = await getNotificationsBySubscriberID("user2-uid");
-  for (const notification of notifications) {
-  console.log(notification);
-}
-};
+  const handleCreateNotification = async () => {
+    try {
+
+      await createNotification(notification);
+      console.log('Notification created successfully!');
+      handleCloseDialog();
+    } catch (error) {
+      console.error('Error creating notification:', error);
+
+    }
+  };
+
+
+  const getAllNotifications = async () => {
+    const notifications = await getNotificationsBySubscriberID("user2-uid");
+    for (const notification of notifications) {
+      console.log(notification);
+    }
+  };
 
 
   const hearingDates = [
@@ -195,13 +201,47 @@ const getAllNotifications = async () => {
   };
 
 
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLanguageSelect = (language) => {
+    // Add your logic here to handle language selection
+    console.log(`Selected language: ${language}`);
+    handleClose();
+  };
+
 
   return <div className="bg-[#F5F5F5] min-h-screen flex">
     <div className=" p-4 w-full flex flex-col gap-4">
       <div style={{ position: 'relative', height: "75px" }} className=" text-3xl font-4 mb-4">
         <img style={{ position: 'absolute', left: '0px' }} src={logo} alt="" className="w-[200px] h-auto" />
-        <img style={{ position: 'absolute', right: '0px' }} src={avatar} alt="" className="w-[75px] h-auto" />
-        <p style={{ position: 'absolute', right: '100px', top: '5px', color: '#329D90', fontSize: '22px', fontWeight: '800' }}>Adv. Parth Gala</p>
+        <img style={{ position: 'absolute', right: '0px' }} src={vikram} alt="" className="w-[75px] h-auto" />
+        <IconButton
+          style={{ position: 'absolute', right: '400px', top: '5px', color: '#329D90', fontSize: '42px', fontWeight: '800' }}
+          onClick={handleClick}
+        >
+          <LanguageIcon fontSize="45px" />
+        </IconButton>
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem disabled={i18next.language === LOCALS.EN}
+            onClick={() => i18next.changeLanguage(LOCALS.EN)}>
+              English
+            </MenuItem>
+          <MenuItem disabled={i18next.language === LOCALS.HI}
+            onClick={() => i18next.changeLanguage(LOCALS.HI)}>Hindi</MenuItem>
+        </Menu>
+        <p style={{ position: 'absolute', right: '100px', top: '5px', color: '#329D90', fontSize: '22px', fontWeight: '800' }}>Adv. Amit Sharma</p>
         <button style={{
 
           color: "#000",
@@ -233,7 +273,7 @@ const getAllNotifications = async () => {
 
                 <div className="flex flex-col">
                   <div className="justify-center content-center text-start text-btnColor font-bold text-lg">
-                    Lawyer Ranking
+                    {t('Lawyer Ranking')}
                   </div>
                 </div>
               </div>
@@ -255,7 +295,7 @@ const getAllNotifications = async () => {
                 <img src={Playstore} alt="" className="inline-block text-6xl m-3 bg-[#C8FFE0] bg-opacity-50 p-1 border border-black rounded-lg" />
                 <div className="flex flex-col">
                   <div className="justify-center content-center text-start text-btnColor font-bold text-lg">
-                    Service
+                    {t('Service')}
                   </div>
                 </div>
               </div>
@@ -278,7 +318,7 @@ const getAllNotifications = async () => {
                 <img src={documents} alt="" className="inline-block text-6xl m-3 bg-[#F6E6C2] bg-opacity-50 p-1 border border-black rounded-lg" />
                 <div className="flex flex-col">
                   <div className="justify-center content-center text-start text-btnColor font-bold text-lg">
-                    Documents
+                    {t('Documents')}
                   </div>
                 </div>
               </div>
@@ -324,7 +364,7 @@ const getAllNotifications = async () => {
                 <img src={loyaltyimg} alt="" className="inline-block text-6xl m-3 bg-[#85CDFD] bg-opacity-50 p-1 border border-black rounded-lg" />
                 <div className="flex flex-col">
                   <div className="justify-center content-center text-start text-btnColor font-bold text-lg">
-                    Next Hearing
+                    {t('Next Hearing')}
                   </div>
                 </div>
               </div>
@@ -332,128 +372,129 @@ const getAllNotifications = async () => {
                 26 OCT
               </button>
             </button>
-          </div>
-        </div>
-
-      </div>
-      <div className='ml-[35px] relative '>
-        <Typography variant="h2" style={{ color: '#000', fontFamily: 'Poppins', fontSize: '25px', fontWeight: '700' }}>
-          Case Details
-        </Typography>
-        <div style={{ borderRadius: '15px', width: '75vw', height: '350px', background: 'white', padding: '20px' }}>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <div className='flex flex-col items-center'>
-              <Typography variant="h4">Land Dispute Settlement</Typography>
-              <div className='absolute left-10'>Case Number: XYZ123</div>
-              <Typography variant="h5">Vikram Singh vs Defendant</Typography>
-            </div>
-          </div>
-          <Divider style={{ margin: '15px 0' }} />
-
-          <h2 className='text__para text-[15px]'>
-            Description: In this Indian land dispute case, Vikram Singh, the plaintiff, and the defendant are entangled in a legal battle over a piece of land situated in a rural area near Jaipur, Rajasthan. The dispute revolves around conflicting claims regarding the ownership and boundaries of the land, adding complexity to the case.
-          </h2>
-          <h2 className='text__para text-[15px]'>
-            Vikram Singh asserts his rightful ownership based on ancestral documents and traditional land records, while the defendant challenges these claims, presenting alternative historical evidence. The court aims to navigate through the intricacies of Indian land laws and cultural nuances to arrive at a fair and just resolution that respects the legal rights of both parties involved.
-          </h2>
-        </div>
-      </div>
-      <div className='flex'>
-        <div className='ml-[35px] relative mt-[20px] '>
-          <Typography variant="h2" style={{ color: '#000', fontFamily: 'Poppins', fontSize: '25px', fontWeight: '700' }}>
-            Case Hearings
-          </Typography>
-          <Paper style={{ borderRadius: '15px', width: '25vw', height: '350px', background: 'white', padding: '20px' }}>
-            <List style={{ overflowY: 'auto', height: '100%' }}>
-              {hearingDates.map((hearing, index) => (
-                <div key={index}>
-                  <ListItem>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                      <div className='flex gap-3'>
-                        <Typography variant="body1">{hearing.serialNumber}.</Typography>
-                        <Typography variant="body1">{hearing.hearingNumber}</Typography>
-                      </div>
-                      <div style={{ borderRadius: '8px', background: '#f0f0f0', padding: '5px 10px' }}>
-                        <Typography variant="body2">{hearing.date}</Typography>
-                      </div>
-                    </div>
-                  </ListItem>
-                  {index < hearingDates.length - 1 && <Divider />}
-                </div>
-              ))}
-            </List>
-          </Paper>
-        </div>
-        <div className='ml-[35px] relative mt-[20px] '>
-          <Typography variant="h2" style={{ color: '#000', fontFamily: 'Poppins', fontSize: '25px', fontWeight: '700', }}>
-            Next Meeting Scheduled
-          </Typography>
-          <Paper style={{ borderRadius: '15px', width: '25vw', background: 'white', padding: '20px', textAlign: 'center', height: '350px' }}>
            
-            <Typography variant="h4" style={{ marginTop: '10px' }}>
-              Date: {nextMeeting.date}
-            </Typography>
-            <Typography variant="h5" style={{ margin: '10px 0' }}>
-              Topic: {nextMeeting.topic}
-            </Typography>
-            <Typography variant="h6" style={{ marginBottom: '15px', textAlign: 'left', fontSize: '16px' }}>
-              {additionalContent.map((item, index) => (
-                <div key={index}>{item}</div>
-              ))}
-            </Typography>
-            <Button
-              variant="contained"
-              style={{ backgroundColor: '#4CAF50', color: 'white', borderRadius: '8px', marginTop: '20px', padding: '15px 30px', fontSize: '18px' }}
-              onClick={handleSubmitForm}
-            >
-              Join
-            </Button>
-          </Paper>
-        </div>
-        <div className='ml-[35px] relative mt-[20px]'>
-          <Typography variant="h2" style={{ color: '#000', fontFamily: 'Poppins', fontSize: '25px', fontWeight: '700' }}>
-            Recent Notices
-          </Typography>
-          <Paper style={{ borderRadius: '15px', width: '25vw', height: '350px', background: 'white', padding: '20px' }}>
-            <List style={{ overflowY: 'auto', height: '100%' }}>
-              {notices.map((notice, index) => (
-                <div key={index}>
-                  <ListItem>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                      <div className='flex gap-3'>
-                        <Typography variant="h6">{notice.title}</Typography>
-                      </div>
-                    </div>
-                  </ListItem>
-                  <Divider />
-                  <ListItem>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                      <div>
-                        <Typography variant="body1">{notice.content}</Typography>
-                      </div>
-                      <div>
-                        <Button
-                          variant="contained"
-                          style={{ backgroundColor: '#2196F3', color: 'white', borderRadius: '8px', padding: '8px' }}
-                          onClick={() => handleViewNotice(index)}
-                        >
-                          View Notice
-                        </Button>
-                      </div>
-                    </div>
-                  </ListItem>
-                  {index < notices.length - 1 && <Divider />}
-                </div>
-              ))}
-            </List>
-          </Paper>
         </div>
       </div>
 
     </div>
+    <div className='ml-[35px] relative '>
+      <Typography variant="h2" style={{ color: '#000', fontFamily: 'Poppins', fontSize: '25px', fontWeight: '700' }}>
+        {t('Case Details')}
+      </Typography>
+      <div style={{ borderRadius: '15px', width: '75vw', height: '350px', background: 'white', padding: '20px' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div className='flex flex-col items-center'>
+            <Typography variant="h4">{t('Land Dispute Settlement')}</Typography>
+            <div className='absolute left-10'>{t('Case Number')}: XYZ123</div>
+            <Typography variant="h5">Vikram Singh vs Defendant</Typography>
+          </div>
+        </div>
+        <Divider style={{ margin: '15px 0' }} />
+
+        <h2 className='text__para text-[15px]'>
+          Description: {t('Case Description')}
+
+        </h2>
+        <h2 className='text__para text-[15px]'>
+        </h2>
+      </div>
+    </div>
+    <div className='flex'>
+      <div className='ml-[35px] relative mt-[20px] '>
+        <Typography variant="h2" style={{ color: '#000', fontFamily: 'Poppins', fontSize: '25px', fontWeight: '700' }}>
+          {t('Case Hearings')}
+        </Typography>
+        <Paper style={{ borderRadius: '15px', width: '25vw', height: '350px', background: 'white', padding: '20px' }}>
+          <List style={{ overflowY: 'auto', height: '100%' }}>
+            {hearingDates.map((hearing, index) => (
+              <div key={index}>
+                <ListItem>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                    <div className='flex gap-3'>
+                      <Typography variant="body1">{hearing.serialNumber}.</Typography>
+                      <Typography variant="body1">{hearing.hearingNumber}</Typography>
+                    </div>
+                    <div style={{ borderRadius: '8px', background: '#f0f0f0', padding: '5px 10px' }}>
+                      <Typography variant="body2">{hearing.date}</Typography>
+                    </div>
+                  </div>
+                </ListItem>
+                {index < hearingDates.length - 1 && <Divider />}
+              </div>
+            ))}
+          </List>
+        </Paper>
+      </div>
+      <div className='ml-[35px] relative mt-[20px] '>
+        <Typography variant="h2" style={{ color: '#000', fontFamily: 'Poppins', fontSize: '25px', fontWeight: '700', }}>
+          {t('Next Meeting Scheduled')}
+        </Typography>
+        <Paper style={{ borderRadius: '15px', width: '25vw', background: 'white', padding: '20px', textAlign: 'center', height: '350px' }}>
+
+          <Typography variant="h4" style={{ marginTop: '10px' }}>
+            Date: {nextMeeting.date}
+          </Typography>
+          <Typography variant="h5" style={{ margin: '10px 0' }}>
+            Topic: {nextMeeting.topic}
+          </Typography>
+          <Typography variant="h6" style={{ marginBottom: '15px', textAlign: 'left', fontSize: '16px' }}>
+            {additionalContent.map((item, index) => (
+              <div key={index}>{item}</div>
+            ))}
+          </Typography>
+          <Button
+            variant="contained"
+            style={{ backgroundColor: '#4CAF50', color: 'white', borderRadius: '8px', marginTop: '20px', padding: '15px 30px', fontSize: '18px' }}
+            onClick={handleSubmitForm}
+          >
+            Join
+          </Button>
+        </Paper>
+      </div>
+      <div className='ml-[35px] relative mt-[20px]'>
+        <Typography variant="h2" style={{ color: '#000', fontFamily: 'Poppins', fontSize: '25px', fontWeight: '700' }}>
+          {t('Recent Notices')}
+        </Typography>
+        <Paper style={{ borderRadius: '15px', width: '25vw', height: '350px', background: 'white', padding: '20px' }}>
+          <List style={{ overflowY: 'auto', height: '100%' }}>
+            {notices.map((notice, index) => (
+              <div key={index}>
+                <ListItem>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                    <div className='flex gap-3'>
+                      <Typography variant="h6">{notice.title}</Typography>
+                    </div>
+                  </div>
+                </ListItem>
+                <Divider />
+                <ListItem>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                    <div>
+                      <Typography variant="body1">{notice.content}</Typography>
+                    </div>
+                    <div>
+                      <Button
+                        variant="contained"
+                        style={{ backgroundColor: '#2196F3', color: 'white', borderRadius: '8px', padding: '8px' }}
+                        onClick={() => handleViewNotice(index)}
+                      >
+                        View Notice
+                      </Button>
+                    </div>
+                  </div>
+                </ListItem>
+                {index < notices.length - 1 && <Divider />}
+              </div>
+            ))}
+          </List>
+        </Paper>
+      </div>
+    </div>
+
+  </div>
 
 
-  </div>;
+  </div >;
 };
 
 export default Uroom;

@@ -27,6 +27,7 @@ const ULogin = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
+    localStorage.setItem("isUserLoggedIn", true);
 
     setOpenSnackbar(true);
 

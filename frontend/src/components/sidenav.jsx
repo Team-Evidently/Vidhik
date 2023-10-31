@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {BiSolidDashboard, BiLogOut} from "react-icons/bi";
 import {MdHub, MdPersonSearch} from "react-icons/md";
 import {BsListCheck, BsRobot} from "react-icons/bs";
-import lawyer from "../assets/lawyerprofile.jpeg";
+import lawyer from "../assets/lawyerprofile9.jpeg";
 const Sidebar = () => {
   const [activeButton, setActiveButton] = useState("dashboard");
 
